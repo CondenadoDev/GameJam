@@ -19,17 +19,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform catTransform;
     [SerializeField] private CatController catController;
     
+    [Header("Detection System")]
+    [SerializeField] private float detectionCooldown = 1.5f;
+    private float lastLifeLossTime = -999f;
+    private bool isProcessingDetection = false;
+    
     public System.Action<int> OnLivesChanged;
     public System.Action<int, int> OnObjectivesChanged;
     public System.Action<GameEndType> OnGameEnd;
     
-    public enum GameEndType
-    {
-        Victory_Complete,
-        Victory_Partial,
-        Defeat_NoLives,
-        Defeat_Expelled
-    }
+    public enum GameEndType { Victory_Complete, Victory_Partial, Defeat_NoLives }
     
     public static GameManager Instance { get; private set; }
     
@@ -43,12 +42,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
-        
+    }
+
+    void OnEnable()
+    {
         InitializeGame();
     }
-    
+
     void Start()
     {
         FindReferences();
@@ -61,45 +62,58 @@ public class GameManager : MonoBehaviour
         objectivesCollected = 0;
         gameOver = false;
         missionComplete = false;
-        
-        Debug.Log("Juego iniciado - Vidas: " + currentLives + " | Objetivos: " + objectivesCollected + "/" + totalObjectives);
+        isProcessingDetection = false;
+        lastLifeLossTime = -999f;
     }
     
     void FindReferences()
     {
-        if (catTransform == null)
+        GameObject catObject = GameObject.FindGameObjectWithTag("Player");
+        if (catObject != null)
         {
-            GameObject catObject = GameObject.FindGameObjectWithTag("Player");
-            if (catObject != null)
-            {
-                catTransform = catObject.transform;
-                catController = catObject.GetComponent<CatController>();
-            }
-        }
-        
-        if (catTransform != null)
-        {
-            catSpawnPoint = catTransform.position;
+            catTransform = catObject.transform;
+            catController = catObject.GetComponent<CatController>();
+            if (catSpawnPoint == Vector3.zero) catSpawnPoint = catTransform.position;
         }
     }
-    
-    public void OnPlayerDetected()
+
+    public void OnPlayerArrested()
     {
-        if (gameOver) return;
+        if (gameOver || isProcessingDetection) return;
+
+        if (Time.time < lastLifeLossTime + detectionCooldown)
+        {
+            return;
+        }
+
+        StartCoroutine(ProcessArrest());
+    }
+
+    IEnumerator ProcessArrest()
+    {
+        isProcessingDetection = true;
+        lastLifeLossTime = Time.time;
         
         currentLives--;
-        Debug.Log("Jugador detectado - Vidas restantes: " + currentLives);
-        
         OnLivesChanged?.Invoke(currentLives);
-        
+    
         if (currentLives <= 0)
         {
             EndGame(GameEndType.Defeat_NoLives);
         }
         else
         {
+            if (catController != null) catController.enabled = false;
+            
+            yield return new WaitForSeconds(0.5f);
+            
             ResetCatPosition();
+        
+            if (catController != null) catController.enabled = true;
         }
+        
+        yield return new WaitForSeconds(detectionCooldown);
+        isProcessingDetection = false;
     }
     
     public void OnObjectiveCollected()
@@ -107,14 +121,11 @@ public class GameManager : MonoBehaviour
         if (gameOver) return;
         
         objectivesCollected++;
-        Debug.Log("Objetivo recolectado - Progreso: " + objectivesCollected + "/" + totalObjectives);
-        
         OnObjectivesChanged?.Invoke(objectivesCollected, totalObjectives);
         
         if (objectivesCollected >= totalObjectives)
         {
             missionComplete = true;
-            Debug.Log("Todos los objetivos recolectados - Dirígete a la salida");
         }
     }
     
@@ -124,18 +135,7 @@ public class GameManager : MonoBehaviour
         
         if (objectivesCollected > 0)
         {
-            if (objectivesCollected >= totalObjectives)
-            {
-                EndGame(GameEndType.Victory_Complete);
-            }
-            else
-            {
-                EndGame(GameEndType.Victory_Partial);
-            }
-        }
-        else
-        {
-            Debug.Log("No puedes escapar sin recolectar al menos un objetivo");
+            EndGame(missionComplete ? GameEndType.Victory_Complete : GameEndType.Victory_Partial);
         }
     }
     
@@ -144,19 +144,17 @@ public class GameManager : MonoBehaviour
         if (catTransform != null)
         {
             catTransform.position = catSpawnPoint;
-            
             Rigidbody2D catRb = catTransform.GetComponent<Rigidbody2D>();
             if (catRb != null)
             {
                 catRb.linearVelocity = Vector2.zero;
             }
-            
-            Debug.Log("Gato regresado al punto de aparición");
         }
     }
     
     void EndGame(GameEndType endType)
     {
+        if (gameOver) return;
         gameOver = true;
         
         if (catController != null)
@@ -165,38 +163,7 @@ public class GameManager : MonoBehaviour
         }
         
         OnGameEnd?.Invoke(endType);
-        
-        ShowEndGameMessage(endType);
-        
         StartCoroutine(AutoRestartAfterDelay(5f));
-    }
-    
-    void ShowEndGameMessage(GameEndType endType)
-    {
-        string message = "";
-        
-        switch (endType)
-        {
-            case GameEndType.Victory_Complete:
-                message = "MISION COMPLETADA\nTodos los tesoros han sido rescatados.\nEl gato será el próximo presidente";
-                break;
-                
-            case GameEndType.Victory_Partial:
-                message = $"MISION PARCIAL\n{objectivesCollected}/{totalObjectives} objetivos rescatados.\nFelicitaciones del jefe.";
-                break;
-                
-            case GameEndType.Defeat_NoLives:
-                message = "MISION FALLIDA\nEl gato fue expulsado de la isla.\nHa sido despedido de la agencia.";
-                break;
-                
-            case GameEndType.Defeat_Expelled:
-                message = "MISION FALLIDA\nDemasiadas detecciones.\nLa mansión está cerrada.";
-                break;
-        }
-        
-        Debug.Log("=== FIN DEL JUEGO ===");
-        Debug.Log(message);
-        Debug.Log("Presiona R para reiniciar o espera 5 segundos");
     }
     
     IEnumerator AutoRestartAfterDelay(float delay)
@@ -215,7 +182,6 @@ public class GameManager : MonoBehaviour
     
     public void RestartGame()
     {
-        Debug.Log("Reiniciando juego...");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
@@ -224,35 +190,9 @@ public class GameManager : MonoBehaviour
         OnLivesChanged?.Invoke(currentLives);
         OnObjectivesChanged?.Invoke(objectivesCollected, totalObjectives);
     }
-    
-    public int GetCurrentLives() => currentLives;
-    public int GetObjectivesCollected() => objectivesCollected;
-    public int GetTotalObjectives() => totalObjectives;
-    public bool IsGameOver() => gameOver;
-    public bool IsMissionComplete() => missionComplete;
-    
-    [ContextMenu("Añadir Vida")]
-    void Debug_AddLife()
+    // Este método permite que otros scripts pregunten cuántos objetivos se han recolectado.
+    public int GetObjectivesCollected()
     {
-        currentLives++;
-        OnLivesChanged?.Invoke(currentLives);
-    }
-    
-    [ContextMenu("Quitar Vida")]
-    void Debug_RemoveLife()
-    {
-        OnPlayerDetected();
-    }
-    
-    [ContextMenu("Recolectar Objetivo")]
-    void Debug_CollectObjective()
-    {
-        OnObjectiveCollected();
-    }
-    
-    [ContextMenu("Resetear Posición del Gato")]
-    void Debug_ResetCatPosition()
-    {
-        ResetCatPosition();
+        return objectivesCollected;
     }
 }

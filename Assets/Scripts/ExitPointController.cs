@@ -32,7 +32,14 @@ public class ExitPointController : MonoBehaviour
     void InitializeExit()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
+        if (GetComponent<AudioSource>() == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        else
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
         
         if (spriteRenderer == null)
         {
@@ -69,16 +76,11 @@ public class ExitPointController : MonoBehaviour
         bool wasActive = isActive;
         isActive = !requiresObjectives || gameManager.GetObjectivesCollected() > 0;
         
-        if (wasActive != isActive)
+        if (!wasActive && isActive)
         {
-            if (isActive)
-            {
-                Debug.Log("Punto de salida ACTIVO - el jugador puede escapar");
-            }
-            else
-            {
-                Debug.Log("Punto de salida INACTIVO - recolecta objetivos primero");
-            }
+            // >> SFX: Reproducir un sonido de "activación" o "energía" para notificar
+            // al jugador que la salida ya está disponible.
+            Debug.Log("Punto de salida ACTIVO - el jugador puede escapar");
         }
     }
     
@@ -87,16 +89,15 @@ public class ExitPointController : MonoBehaviour
         if (spriteRenderer == null) return;
         
         pulseTimer += Time.deltaTime * pulseSpeed;
-        
         Color baseColor = isActive ? activeColor : inactiveColor;
-        
         float pulseFactor = (Mathf.Sin(pulseTimer) + 1f) * 0.5f;
         Color currentColor = Color.Lerp(baseColor, Color.white, pulseFactor * 0.3f);
-        
         spriteRenderer.color = currentColor;
         
         if (isActive)
         {
+            // >> SFX: Aquí podría haber un sonido de "zumbido" o "hum" sutil y en bucle
+            // para indicar que la salida está activa y esperando.
             float scaleFactor = 1f + (pulseFactor * 0.1f);
             transform.localScale = Vector3.one * scaleFactor;
         }
@@ -125,6 +126,7 @@ public class ExitPointController : MonoBehaviour
     {
         Debug.Log("Jugador llegó al punto de salida");
         
+        // >> SFX: Este es el lugar principal para el sonido de éxito.
         if (audioSource != null && exitSound != null)
         {
             audioSource.PlayOneShot(exitSound);
@@ -135,11 +137,16 @@ public class ExitPointController : MonoBehaviour
             gameManager.OnReachExit();
         }
         
+        // Desactiva el objeto para que no se pueda volver a activar.
+        this.enabled = false;
+        
         StartCoroutine(ExitEffect());
     }
     
     void ShowInactiveMessage()
     {
+        // >> SFX: Reproducir un sonido de "error" o "acceso denegado"
+        // para informar al jugador que aún no puede usar la salida.
         Debug.Log("No puedes escapar sin recolectar al menos un objetivo");
     }
     
@@ -175,16 +182,14 @@ public class ExitPointController : MonoBehaviour
     {
         Gizmos.color = isActive ? Color.green : Color.red;
         Gizmos.DrawWireSphere(transform.position, activationRange);
-        
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, Vector3.one * 0.8f);
         
         Vector3 arrowStart = transform.position + Vector3.up * 2f;
         Vector3 arrowEnd = transform.position + Vector3.up * 1f;
         Gizmos.DrawLine(arrowStart, arrowEnd);
-        
-        Vector3 arrowHeadRight = arrowEnd + Vector3.right * 0.3f + Vector3.up * 0.3f;
-        Vector3 arrowHeadLeft = arrowEnd + Vector3.left * 0.3f + Vector3.up * 0.3f;
+        Vector3 arrowHeadRight = arrowEnd + new Vector3(0.3f, 0.3f, 0);
+        Vector3 arrowHeadLeft = arrowEnd + new Vector3(-0.3f, 0.3f, 0);
         Gizmos.DrawLine(arrowEnd, arrowHeadRight);
         Gizmos.DrawLine(arrowEnd, arrowHeadLeft);
     }
