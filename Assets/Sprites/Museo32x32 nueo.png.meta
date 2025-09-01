@@ -1,0 +1,6163 @@
+fileFormatVersion: 2
+guid: ebdae0b272979ab42a722fdbec439dfb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4500962781820140287
+    second: Museo32x32 nueo_0
+  - first:
+      213: 128899234750912196
+    second: Museo32x32 nueo_1
+  - first:
+      213: -775119271949257991
+    second: Museo32x32 nueo_2
+  - first:
+      213: 4364954955361647168
+    second: Museo32x32 nueo_3
+  - first:
+      213: -6500316909959925395
+    second: Museo32x32 nueo_4
+  - first:
+      213: -6614094908229447115
+    second: Museo32x32 nueo_5
+  - first:
+      213: -1789869101541878681
+    second: Museo32x32 nueo_6
+  - first:
+      213: 3453744613537341506
+    second: Museo32x32 nueo_7
+  - first:
+      213: 4182838038489457915
+    second: Museo32x32 nueo_8
+  - first:
+      213: 3033320606873292908
+    second: Museo32x32 nueo_9
+  - first:
+      213: -341631190745118298
+    second: Museo32x32 nueo_10
+  - first:
+      213: -4496033682434597386
+    second: Museo32x32 nueo_11
+  - first:
+      213: -7287823310471100487
+    second: Museo32x32 nueo_12
+  - first:
+      213: -211090507409502743
+    second: Museo32x32 nueo_13
+  - first:
+      213: -1529801958518407523
+    second: Museo32x32 nueo_14
+  - first:
+      213: 410622170219424321
+    second: Museo32x32 nueo_15
+  - first:
+      213: -5298855286197077271
+    second: Museo32x32 nueo_16
+  - first:
+      213: -4961347865278181122
+    second: Museo32x32 nueo_17
+  - first:
+      213: -6174634116919254435
+    second: Museo32x32 nueo_18
+  - first:
+      213: -7208089799232266437
+    second: Museo32x32 nueo_19
+  - first:
+      213: -8909685475840130972
+    second: Museo32x32 nueo_20
+  - first:
+      213: 1447903785789780787
+    second: Museo32x32 nueo_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Museo32x32 nueo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffab4ad8dc1a67e30800000000000000
+      internalID: 4500962781820140287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c6d52bcb21f9c100800000000000000
+      internalID: 128899234750912196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2b7e001293e35f0800000000000000
+      internalID: -775119271949257991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a79e6c76f639c30800000000000000
+      internalID: 4364954955361647168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61bf56e53c3ac5a0800000000000000
+      internalID: -6500316909959925395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532934459b30634a0800000000000000
+      internalID: -6614094908229447115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7641628098b1927e0800000000000000
+      internalID: -1789869101541878681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240efc26d6a2eef20800000000000000
+      internalID: 3453744613537341506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4e72dc80d6c0a30800000000000000
+      internalID: 4182838038489457915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c601e8e4505881a20800000000000000
+      internalID: 3033320606873292908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a98177fd38424bf0800000000000000
+      internalID: -341631190745118298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd5b44df21ea91c0800000000000000
+      internalID: -4496033682434597386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_12
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b70f89cf437cda90800000000000000
+      internalID: -7287823310471100487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_13
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed466a4d4e021df0800000000000000
+      internalID: -211090507409502743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_14
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 750
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e30d5593d05cae0800000000000000
+      internalID: -1529801958518407523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a24d030b2d2b500800000000000000
+      internalID: 410622170219424321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eab506113fa676b0800000000000000
+      internalID: -5298855286197077271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef093f22760c52bb0800000000000000
+      internalID: -4961347865278181122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52250b3cfa4f4aa0800000000000000
+      internalID: -6174634116919254435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3fd4a78488b7fb90800000000000000
+      internalID: -7208089799232266437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4608718e3407a5480800000000000000
+      internalID: -8909685475840130972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33371f462dcf71410800000000000000
+      internalID: 1447903785789780787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c20a344f71dbd746831874dcc54c09a
+      internalID: -1548610778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8e4545f66ef8747ba9f2609a7f7c35
+      internalID: -1391976161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_24
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e692a3460a9cc47a57378727e07460
+      internalID: 683788438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa128fe865e4f9e4fa9896dd1417eea6
+      internalID: -1667532985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_26
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f630dadeb56ae6049bacfb3dc9f9f26c
+      internalID: 779221297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467ff43f5d9973a44b47816ec7a890a5
+      internalID: -812536231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_28
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7949404ffc560143b3c1d9feca3f107
+      internalID: -1604440656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_29
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8cec71031f2774197b3b79bdd23b6e
+      internalID: 2142941749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_30
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42c02fb1cf7b38458a9ace4f588e36a
+      internalID: -570729354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313c989c7238f1347af7072fc32cdb32
+      internalID: -1412963849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c2c08374a4dc147948119fc87fb88a
+      internalID: -410211137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec5aa4b9278e1044955a77cd9839b3a
+      internalID: 488043215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9657d18ad812b46a5b3e1b99291d00
+      internalID: 957603557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14247f59e9a0a340808df3165108028
+      internalID: -1294067055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f653e490ec13ec4490239ec61e09a85
+      internalID: -685385849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_37
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5291cbbfec1f94db01e4922769f30d
+      internalID: -1618017504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_38
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e7c2a04f3cf264684f254602d2c7d6
+      internalID: -1148761608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_39
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40541f5fd73c5e4e9587c183eea3369
+      internalID: 2044766569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_40
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4b2311e6ddc6f49b70ec7adb05ce67
+      internalID: 220355572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_41
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a43f366eb532445b5d94e14541de4f
+      internalID: 239090943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_42
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 686
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df521a740dca1604b9a0c0073c6d1560
+      internalID: 1641910997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659eca465cc503b48820d28b5d4492fb
+      internalID: 1076469182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcde6a30dd227754baa7e5300ac61c18
+      internalID: -1276351191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3d3ef5e2c3bd646aa3fbe3b810f96e
+      internalID: 778878588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45204269da13bf44b8ad34ff5bcc61a1
+      internalID: -751670029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbeeb529f3db5b428c1c035df99eea1
+      internalID: 760471449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_48
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8bd85267ebc3d4382f900e47326fe5
+      internalID: 1941332129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdcab4b47d8d6e4aba693d495eccdbc
+      internalID: -188043088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_50
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd413f7ae593f5948ad493dcf9722e87
+      internalID: 1672277778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_51
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148e149f9af17aa4aa626920e70d5d6d
+      internalID: -1004766504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5a8dd66b4c7a6429c4e3a758b7d71d
+      internalID: 1558019216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_53
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d47fcaba25df184bb9d0f2d7bede077
+      internalID: -114264888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_54
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 654
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29015bf41ddf5134fa648afb66349028
+      internalID: 1829090678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ebae92a81dc604c88f389a653ebe6f
+      internalID: 1967798206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_56
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6ec9dd8decb754892e8f709dfce249
+      internalID: -781586816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a85392b7a38e047bb09af8de3d3240
+      internalID: 1039213304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_58
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802b748bb15eeb548852dd6dff64c2e4
+      internalID: 884429612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_59
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b66941f76617d438864e678580475a
+      internalID: -2056029657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b638f20e9fa6074b95934484948d3ab
+      internalID: -694602944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_61
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de7052a99640ee458e002d40685cba2
+      internalID: 2028036661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_62
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6afd87977496994439f3e512ef4583ce
+      internalID: -170291024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_63
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a19c8346bd2188498e65a607c0761ed
+      internalID: 2094437425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_64
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f68721ef0a22eb44b1dc9506d335489
+      internalID: -428207800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_65
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1090bb8b641817b48a08b181b8f92f91
+      internalID: -703447248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_66
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499e4c98ce9d3ab4f816b82761c36610
+      internalID: 799331725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_67
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298fc71498168f04abc6259d661fbe53
+      internalID: 1188834687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_68
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be19e236cecc9f49ba03393567b7d77
+      internalID: -1308943183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_69
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 622
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7206a5fc154a5c548b9e711123b9fc4d
+      internalID: 1675691488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5125c06a9f4dc4190e346dae5fd1b6
+      internalID: 1996612869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_71
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf49dd258f314ea47b920b2945147486
+      internalID: -2137004440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_72
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad921019b7cc284bb1424d6ed9df21e
+      internalID: 1051581677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_73
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be2fb7ec985a0ea49b0a1b19737839c3
+      internalID: -2096798308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_74
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17580c08ad4152544be9e85eb72f895f
+      internalID: 758514616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_75
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba7a3f77e3d70b40997cf5e713964bd
+      internalID: -1898315474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_76
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47df7cda3f661944699fa7e8a91a3e4d
+      internalID: -1287648509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_77
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa87a85e93753de42ac89dfc01c0200c
+      internalID: -2020140704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_78
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f183238b1e8eedd4d8bb129152461e1a
+      internalID: 1881134270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_79
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6afd6a57cb69c64ca05f6036d3bb25a
+      internalID: -1713042335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_80
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 590
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6182cb9e5d830a04893bd3f249b22029
+      internalID: -1941529985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b92afffe78a0364382e2c0eae80a6a7
+      internalID: -163637562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_82
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737c56e0fe923cb4ca4a2e0414ecc269
+      internalID: 801781209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_83
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b474482890f1a0b49bb7a0ca982e1b7d
+      internalID: -1727262014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_84
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6066ce57cd5f73c4ba628ca070344ee4
+      internalID: -1821262262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_85
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97547aa4e67634e468e998d3a43edf0f
+      internalID: 830959487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_86
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e40b975e1f9aa4ba9ffa9b7a40e7b3
+      internalID: -1960238228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_87
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36121a4d4f58646489db25d328c6ccf5
+      internalID: -98469503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_88
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b6a2613c6a95842bd3e81297f1e6e3
+      internalID: -828078332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_89
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55ece6403b8298489a20bf8d3696cc7
+      internalID: -1097416487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_90
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b90565537b3a44991badf613e62d85
+      internalID: -382080663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_91
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04f284fb6b3ff54ea43c40b4e2b66fe
+      internalID: -1273007734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_92
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eeb33db2fb67b54bb272d18e553fedf
+      internalID: 1588653801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_93
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294c51dff10e156449828ae6b63c78aa
+      internalID: -22199990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_94
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a93cd759cd3ba499080b31a9a0f069
+      internalID: -908328913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_95
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d5c63480b8c6941adcd7e52c2cb6d7
+      internalID: -1802769606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_96
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2977cbf0386b5b4479ef368ed566b16e
+      internalID: 1278725255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_97
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8dfc5d37e9491a4584f454fe3991be6
+      internalID: -701789876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_98
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 526
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bfec481d37d0b44a023cc9ef696cee
+      internalID: -1707572082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_99
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961c285e1f367e04795ad86d2d2af09c
+      internalID: -217299147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_100
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d40b2adccd835c4ba76703574034d63
+      internalID: -987209978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_101
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b25248fb5d0c844f9feca3de9461158
+      internalID: -386473288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_102
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c1eafc220a2684ba9e91df0901b3c0
+      internalID: 1601288789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_103
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b490d0cfeb6beb44baa7fa63ac84ec0
+      internalID: -534682339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_104
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf3dec02d2412c54e907f6b86a61d221
+      internalID: -438830014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_105
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a5c83aa75204345aa4ca37b8e24c16
+      internalID: 1674938977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_106
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6621066ef9ccb5a4f9665d6d0e57e0b2
+      internalID: 4377498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_107
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fa13de58ebbeb439edae1891c774f2
+      internalID: -41990065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_108
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02912466f4af8f44492b18dd73575607
+      internalID: 1208587388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_109
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69c104d6ce3e3c47bb35228a1f8037d
+      internalID: -1708854368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_110
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878ac5c5c303106489d87b15b6cfa749
+      internalID: -1249022537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_111
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b357c71d48c31f499ab4942e49712bb
+      internalID: -1306850533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_112
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a670a2db9accacd4fae1705898f15792
+      internalID: -1729460119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_113
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baff80d798f09ce46a9e824273af41d4
+      internalID: 1311983903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_114
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 636d8498c672a3b4caa7106c5ac610c0
+      internalID: 786408171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_115
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635de27438b20a84c87614a1026bbb0e
+      internalID: 1195645105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_116
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0fe508103d9834582846874afb3c17
+      internalID: -1901660954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_117
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a56ad00c6191a4e9d5d9b2bada0d5c
+      internalID: 998941208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_118
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b766e06dbf8f64eb21e0c233441aac
+      internalID: 1915189082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_119
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9d3d40508cee34eb6129c5b2ba09ae
+      internalID: -284910130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_120
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 494
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc278def8d7b7c418417b10ec28f2f2
+      internalID: -258379622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0495b4817a952d418a2bc76ba13e756
+      internalID: -1167259453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_122
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d8b868aca6dba48850f256e6506137
+      internalID: 1101316516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_123
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5b54799baefb840a43789bb7342af5
+      internalID: 1647244876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_124
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1c508c23b835143a534be20f84fbc3
+      internalID: 1811054655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_125
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9acd70c5415de4b9cdc33025940950
+      internalID: -818149180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_126
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 462
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c8f6668083cde45a7d3eab897f5660
+      internalID: -1498927721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_127
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 430
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b28da0ece13e141afb55bb3d572531
+      internalID: 1149268247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_128
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 430
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdde783b4b82224784f7025cc5f5e8a
+      internalID: 1320764817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_129
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 430
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6223a159a60da4aaa93869fa687298
+      internalID: -1502141269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_130
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f04cd919d74af24aa8c3f53be80a385
+      internalID: 1859347335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_131
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce58bbe0765481c4492e763782d4d262
+      internalID: 1498357479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_132
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b8195670e2e724bb401a4bb65144d1
+      internalID: -1221781449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_133
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d002098d2a2a8449e82418fb1fbae2
+      internalID: -666129872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_134
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30122bba9feaca4b947fad19c44a3c7
+      internalID: -578553502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_135
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb572479ccbe2e408fec0d0c7aa6f0c
+      internalID: -1569018979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_136
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d5f70904065734f970f06947d62752
+      internalID: -977286046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_137
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63395a2d41cc8746b1a3b89d76f5df0
+      internalID: -143141716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_138
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52a350d297415c4e972e2a0ef309b8a
+      internalID: -1720757594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_139
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d62fee030d1d8c4abfe2018e6b366a9
+      internalID: 469286601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_140
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b0d535e50fac74fab45fb15a851be0
+      internalID: 613520489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_141
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879b7bd97ff4bf04d9cd120df15a01a5
+      internalID: 164102969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_142
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f6e102398b89b4d968a527b39f1efa
+      internalID: 1689902089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_143
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba4ff39e0f79a043818b9f36d6c86db
+      internalID: 1871447792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_144
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 398
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e879fbfacb52f9c4d9e4978f6c4068e7
+      internalID: 1918777429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_145
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a226b90c0aa214143a1b70f586b0dbc0
+      internalID: 1980598285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_146
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0ede08483a7cd49921a0784a25f703
+      internalID: -1686200210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_147
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c465484f4e58f249a4e1eb9efab8d77
+      internalID: -180825696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_148
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64323931a22c7634ba6a1414722796f9
+      internalID: -1385859500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_149
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a2d584b1e836d449bde8cc3a746ef6
+      internalID: -384509669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_150
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7890ea6e8c03b041a29dc81958873cd
+      internalID: 939244021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_151
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e921e9c37883b4eac23c548f3b4481
+      internalID: 1803292071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_152
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc737d12cde9854cb07b6ac42f2a3e6
+      internalID: 1829511237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_153
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9c83607d1785f4a8fdebe545e32f71
+      internalID: -688709950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_154
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73a06e5432d1704eaa544aa0a4d2d64
+      internalID: 59903377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_155
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1189ac7d582494bb7ebeca99bd37aa
+      internalID: 639760983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_156
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581a8afab46a2b34c8b92c637a2458e6
+      internalID: 204574225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_157
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e48e2e4c89c1c744aea40b8f2fd4073
+      internalID: 2069019587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_158
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1dcb45c24c1a684aa2568b0b67ffbea
+      internalID: -1194788179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_159
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 366
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a958d2eb18b22d9449c4bea7819c3c0a
+      internalID: 1812203359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_160
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cb3dcba9230c04eb4b11f62b3949df
+      internalID: 433978430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_161
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c8573af3d817cd41bb1439e659d1f08
+      internalID: 2102758471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_162
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d75be003762034da37afa28bd227d6
+      internalID: 34106480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2c1ef6694b2a64c8256d5e66d506fb
+      internalID: 1437806625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_164
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1328b4065a6dd014595f737c46e9cc1b
+      internalID: -455323667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_165
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85078b699d212434d965e504b6228d1d
+      internalID: -2048421605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_166
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd74bbc29a1e8d84e970884f3e644fb3
+      internalID: -272411856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_167
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecf36cda0fc091498761a1687adacc8
+      internalID: -1715546518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_168
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6395f6f0f226c140a32068f25b1bd78
+      internalID: -792424092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_169
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939f423aadc74544d9f47ce796180bea
+      internalID: -460112193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_170
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b08c273ae566db41a7167d437ec08b9
+      internalID: -1971542421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_171
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7067afadf3ad7f6459c56be6e36edcbe
+      internalID: -1509422413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_172
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e813536823d9d4a854ba753849c1e2
+      internalID: -1254666452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_173
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c719467de2087644b678ec88f6cc22e
+      internalID: 2106298057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_174
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d3576a6bb3faa45a32bfeba48fb073
+      internalID: 783916278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_175
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e870d9b9109f7764c9d053e75ea30bbe
+      internalID: -1346444914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_176
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5d70bc3d34ef54abcba908dc37fc6c
+      internalID: 221789389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_177
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf09df0ad5a2a94790383d533d19856
+      internalID: -327230720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_178
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eafaf5a1ff9e0542a36b0cab2c9e43e
+      internalID: -295373086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_179
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a987b9fadd498d4eb5af88ff9cf4aca
+      internalID: -1519903868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_180
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c0880740c89074f9f1e961cb36f806
+      internalID: -1663849248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_181
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d51815b54f67b41aa04fab4b500b9d
+      internalID: -118353301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4840ea49eb0ee942ba261cccfb7f8f4
+      internalID: -2053253514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_183
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6924a2e512458c4a932db3c1b138159
+      internalID: -585846360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_184
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199104995b606d84e979bcefa9ab27c9
+      internalID: 561710148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_185
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc5c6461309286489a034388aff9ab3
+      internalID: -1941007920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_186
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676dd9b1503e3f840ab575441e25875d
+      internalID: -2128603278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_187
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558509863a6e31244948b645731d7c10
+      internalID: -1397322767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_188
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429b285d32098f54db641a948e44b52f
+      internalID: -151087146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_189
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204e9527c26528b47bda95a92e0a14ea
+      internalID: -2138860009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_190
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cee74ad0cbb4b34092655e0b383047a
+      internalID: 522486274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_191
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 302
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4329b3afa1e3aaf43a21ea37e28c07f0
+      internalID: 45148143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_192
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 270
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edad1c496a62b3448f1bddf48324e7e
+      internalID: -267585036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_193
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 270
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea008071171aeff4a8a15b0a3ee8f9d9
+      internalID: -1900442146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_194
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 270
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc4aac436b23bc4184b673d661c77bf
+      internalID: 1618881974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_195
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 238
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2195320d086437849a0756fb675abbe7
+      internalID: 581882297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_196
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 238
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9e2cd637db4c34eaa33fa01cc198fc
+      internalID: 2053320521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_197
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 238
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4149db785efe9c448aea3a95fcb1e30f
+      internalID: -1754787122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_198
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 238
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbdf9cd027e10f4fb28b383495c7fe8
+      internalID: 1245758628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_199
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 238
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7d737e4a208b042810e0bc7cc314e0
+      internalID: -1764223111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_200
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c371fe5173bbff41a164726be3d7eaf
+      internalID: 1065412312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_201
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ec1f0ccbabefa40a469a3a8ba51af7
+      internalID: -642645771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_202
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4987cfacd55944fa5bedf409cb5e9b
+      internalID: 1272579319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_203
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9719d9b9eb6a04c8a85b86dcb5048e
+      internalID: -1673824007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_204
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c972831eff0015049bf88924a2b130b0
+      internalID: -62306724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_205
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e130fffa17d00b1458717c441e6e0eac
+      internalID: -1171170601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_206
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cd26def5896b042a72bd0d8a1782e9
+      internalID: 831883094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_207
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d66d4a76238134eb2f0090a292153b
+      internalID: -1089991558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_208
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f8caf728e00234e91dc307c70f8476
+      internalID: -1407531133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_209
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e50ab2b88bd2f4cb6956392f940e20
+      internalID: -443706674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_210
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e590a652c71a243418fc77039323dc4b
+      internalID: 884903662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_211
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c34d68096442a4a81b46c7da07e85e
+      internalID: 674248160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_212
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be59c604423301645aaf48e260fbb599
+      internalID: 1010697700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_213
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554ada1d38f10bb48a280d4b1ae3f5f1
+      internalID: -112716741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_214
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 206
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60dc9379e3efaf43b7569f39cdf8eea
+      internalID: -224164464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_215
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9a544d20e267640b91b56283188e92
+      internalID: 1696901427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_216
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f2da81675d6544bad5d3bd2bf2f6d4
+      internalID: -850756087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_217
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cda1218d9a89f94381f1fcba3041e58
+      internalID: 1425057200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_218
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a4f2a25eb0ef74896ff7fb1dda01f1
+      internalID: 2107989896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_219
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02cabce0890802040938f4308a79487f
+      internalID: 1659243520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_220
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02773e60a4840274bb7cd5ee43690e6e
+      internalID: -1591350991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_221
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53af1e7aa2ee03c4bb1b524983af050d
+      internalID: 1699411756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_222
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d831e83bd7e9c7f41bb1841897036742
+      internalID: 1642132744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_223
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3f31c30215cab478e2a6df575a23fb
+      internalID: 1824228367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_224
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5729a4547bc914f40a6b8cab6402cc48
+      internalID: -1606735472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_225
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac9b65055499b247a93d3cff873838c
+      internalID: -2098956273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_226
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7738d0553b01b5d419694698587aaca2
+      internalID: -1563700304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_227
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f06df4df8c809f46bd015a06f4cd370
+      internalID: -649540931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_228
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873f98b7ee65d3142a87e6f814c203bf
+      internalID: -670230163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_229
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58fab97be0971043bed1640e3c28375
+      internalID: -1299389770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_230
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d355bfea2e7954393d5a7f27482676
+      internalID: 993946965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_231
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5558942a041a922449d879520ccf0c09
+      internalID: -1730416139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_232
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8869e60f7e11902408d15c25019a3c72
+      internalID: 1934154359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_233
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7c08c8a77533e44b6b28dde705a1f4
+      internalID: -1668040030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_234
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ce33c697115564fb0a45a87c8f0d74
+      internalID: 1786829047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_235
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218031542b9461f48a0bb8b342609d8f
+      internalID: 718434996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_236
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3974b6dfca3e1904b9a8cfae68b3bdab
+      internalID: 1281315634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_237
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbe663a5d4f6414eb8a108a1ec5eaf0
+      internalID: -505013024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_238
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 142
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd29c296efd95904b8d07f134f2cae59
+      internalID: 927155108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_239
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a607710054108646983028e21adf394
+      internalID: 2117387767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_240
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16aee4110f4cfc04aa9d638e19d59db8
+      internalID: -779622234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_241
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e83322779b94e4facbae90703c37fb
+      internalID: -998411852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_242
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ad111ff9389ce4cb87fb8ce3dd78fb
+      internalID: -1584676930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_243
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4144e1f84db293d4aa6ac4c102dffb15
+      internalID: 1425184978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_244
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90dc69c54ab8f254a82b748ec76e5722
+      internalID: -1128574505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_245
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff10a05cd80eccc46a2724a4c86a08dc
+      internalID: -1913471796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_246
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1a0a61bb5e38c4badd8ed0231af3ad
+      internalID: -1150669831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_247
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569ac4c7632c9234e85ff1eaa7407fb0
+      internalID: -1452922981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_248
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181c652b4ee3feb419d3fcebf11f5adb
+      internalID: 1073308139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_249
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2fb77573456c84db90b401a81134c7
+      internalID: 108013976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_250
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992f3e6e6e79f5c458315fe097fc35ac
+      internalID: -1732221405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_251
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4999df7183b8c8f47a641c771f629555
+      internalID: -485898658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_252
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7173b8ff251507d4094f24e3c31462dc
+      internalID: 707470477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_253
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bae47c818abc61b46bbd72d899c717ef
+      internalID: 1016740112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_254
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76bce314c8032cf46a2eea1a0d06108c
+      internalID: -2020608935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_255
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127462b38cd11394884ded81f7612359
+      internalID: -1474074006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_256
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859fc795ac0a3684a99e29cca2d55bca
+      internalID: -552534406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_257
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6cf8563dfb0b9409d8c02c37ce0a14
+      internalID: -485687906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_258
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826433ca96b4a3047971b31ad4bb0f38
+      internalID: 1560251135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Museo32x32 nueo_259
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 78
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc529a7b1eb9c134a92114dfc2785ea3
+      internalID: 333875824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ede688368ea76fe42bdc6e76f299b159
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Museo32x32 nueo_0: 4500962781820140287
+      Museo32x32 nueo_1: 128899234750912196
+      Museo32x32 nueo_10: -341631190745118298
+      Museo32x32 nueo_100: -987209978
+      Museo32x32 nueo_101: -386473288
+      Museo32x32 nueo_102: 1601288789
+      Museo32x32 nueo_103: -534682339
+      Museo32x32 nueo_104: -438830014
+      Museo32x32 nueo_105: 1674938977
+      Museo32x32 nueo_106: 4377498
+      Museo32x32 nueo_107: -41990065
+      Museo32x32 nueo_108: 1208587388
+      Museo32x32 nueo_109: -1708854368
+      Museo32x32 nueo_11: -4496033682434597386
+      Museo32x32 nueo_110: -1249022537
+      Museo32x32 nueo_111: -1306850533
+      Museo32x32 nueo_112: -1729460119
+      Museo32x32 nueo_113: 1311983903
+      Museo32x32 nueo_114: 786408171
+      Museo32x32 nueo_115: 1195645105
+      Museo32x32 nueo_116: -1901660954
+      Museo32x32 nueo_117: 998941208
+      Museo32x32 nueo_118: 1915189082
+      Museo32x32 nueo_119: -284910130
+      Museo32x32 nueo_12: -7287823310471100487
+      Museo32x32 nueo_120: -258379622
+      Museo32x32 nueo_121: -1167259453
+      Museo32x32 nueo_122: 1101316516
+      Museo32x32 nueo_123: 1647244876
+      Museo32x32 nueo_124: 1811054655
+      Museo32x32 nueo_125: -818149180
+      Museo32x32 nueo_126: -1498927721
+      Museo32x32 nueo_127: 1149268247
+      Museo32x32 nueo_128: 1320764817
+      Museo32x32 nueo_129: -1502141269
+      Museo32x32 nueo_13: -211090507409502743
+      Museo32x32 nueo_130: 1859347335
+      Museo32x32 nueo_131: 1498357479
+      Museo32x32 nueo_132: -1221781449
+      Museo32x32 nueo_133: -666129872
+      Museo32x32 nueo_134: -578553502
+      Museo32x32 nueo_135: -1569018979
+      Museo32x32 nueo_136: -977286046
+      Museo32x32 nueo_137: -143141716
+      Museo32x32 nueo_138: -1720757594
+      Museo32x32 nueo_139: 469286601
+      Museo32x32 nueo_14: -1529801958518407523
+      Museo32x32 nueo_140: 613520489
+      Museo32x32 nueo_141: 164102969
+      Museo32x32 nueo_142: 1689902089
+      Museo32x32 nueo_143: 1871447792
+      Museo32x32 nueo_144: 1918777429
+      Museo32x32 nueo_145: 1980598285
+      Museo32x32 nueo_146: -1686200210
+      Museo32x32 nueo_147: -180825696
+      Museo32x32 nueo_148: -1385859500
+      Museo32x32 nueo_149: -384509669
+      Museo32x32 nueo_15: 410622170219424321
+      Museo32x32 nueo_150: 939244021
+      Museo32x32 nueo_151: 1803292071
+      Museo32x32 nueo_152: 1829511237
+      Museo32x32 nueo_153: -688709950
+      Museo32x32 nueo_154: 59903377
+      Museo32x32 nueo_155: 639760983
+      Museo32x32 nueo_156: 204574225
+      Museo32x32 nueo_157: 2069019587
+      Museo32x32 nueo_158: -1194788179
+      Museo32x32 nueo_159: 1812203359
+      Museo32x32 nueo_16: -5298855286197077271
+      Museo32x32 nueo_160: 433978430
+      Museo32x32 nueo_161: 2102758471
+      Museo32x32 nueo_162: 34106480
+      Museo32x32 nueo_163: 1437806625
+      Museo32x32 nueo_164: -455323667
+      Museo32x32 nueo_165: -2048421605
+      Museo32x32 nueo_166: -272411856
+      Museo32x32 nueo_167: -1715546518
+      Museo32x32 nueo_168: -792424092
+      Museo32x32 nueo_169: -460112193
+      Museo32x32 nueo_17: -4961347865278181122
+      Museo32x32 nueo_170: -1971542421
+      Museo32x32 nueo_171: -1509422413
+      Museo32x32 nueo_172: -1254666452
+      Museo32x32 nueo_173: 2106298057
+      Museo32x32 nueo_174: 783916278
+      Museo32x32 nueo_175: -1346444914
+      Museo32x32 nueo_176: 221789389
+      Museo32x32 nueo_177: -327230720
+      Museo32x32 nueo_178: -295373086
+      Museo32x32 nueo_179: -1519903868
+      Museo32x32 nueo_18: -6174634116919254435
+      Museo32x32 nueo_180: -1663849248
+      Museo32x32 nueo_181: -118353301
+      Museo32x32 nueo_182: -2053253514
+      Museo32x32 nueo_183: -585846360
+      Museo32x32 nueo_184: 561710148
+      Museo32x32 nueo_185: -1941007920
+      Museo32x32 nueo_186: -2128603278
+      Museo32x32 nueo_187: -1397322767
+      Museo32x32 nueo_188: -151087146
+      Museo32x32 nueo_189: -2138860009
+      Museo32x32 nueo_19: -7208089799232266437
+      Museo32x32 nueo_190: 522486274
+      Museo32x32 nueo_191: 45148143
+      Museo32x32 nueo_192: -267585036
+      Museo32x32 nueo_193: -1900442146
+      Museo32x32 nueo_194: 1618881974
+      Museo32x32 nueo_195: 581882297
+      Museo32x32 nueo_196: 2053320521
+      Museo32x32 nueo_197: -1754787122
+      Museo32x32 nueo_198: 1245758628
+      Museo32x32 nueo_199: -1764223111
+      Museo32x32 nueo_2: -775119271949257991
+      Museo32x32 nueo_20: -8909685475840130972
+      Museo32x32 nueo_200: 1065412312
+      Museo32x32 nueo_201: -642645771
+      Museo32x32 nueo_202: 1272579319
+      Museo32x32 nueo_203: -1673824007
+      Museo32x32 nueo_204: -62306724
+      Museo32x32 nueo_205: -1171170601
+      Museo32x32 nueo_206: 831883094
+      Museo32x32 nueo_207: -1089991558
+      Museo32x32 nueo_208: -1407531133
+      Museo32x32 nueo_209: -443706674
+      Museo32x32 nueo_21: 1447903785789780787
+      Museo32x32 nueo_210: 884903662
+      Museo32x32 nueo_211: 674248160
+      Museo32x32 nueo_212: 1010697700
+      Museo32x32 nueo_213: -112716741
+      Museo32x32 nueo_214: -224164464
+      Museo32x32 nueo_215: 1696901427
+      Museo32x32 nueo_216: -850756087
+      Museo32x32 nueo_217: 1425057200
+      Museo32x32 nueo_218: 2107989896
+      Museo32x32 nueo_219: 1659243520
+      Museo32x32 nueo_22: -1548610778
+      Museo32x32 nueo_220: -1591350991
+      Museo32x32 nueo_221: 1699411756
+      Museo32x32 nueo_222: 1642132744
+      Museo32x32 nueo_223: 1824228367
+      Museo32x32 nueo_224: -1606735472
+      Museo32x32 nueo_225: -2098956273
+      Museo32x32 nueo_226: -1563700304
+      Museo32x32 nueo_227: -649540931
+      Museo32x32 nueo_228: -670230163
+      Museo32x32 nueo_229: -1299389770
+      Museo32x32 nueo_23: -1391976161
+      Museo32x32 nueo_230: 993946965
+      Museo32x32 nueo_231: -1730416139
+      Museo32x32 nueo_232: 1934154359
+      Museo32x32 nueo_233: -1668040030
+      Museo32x32 nueo_234: 1786829047
+      Museo32x32 nueo_235: 718434996
+      Museo32x32 nueo_236: 1281315634
+      Museo32x32 nueo_237: -505013024
+      Museo32x32 nueo_238: 927155108
+      Museo32x32 nueo_239: 2117387767
+      Museo32x32 nueo_24: 683788438
+      Museo32x32 nueo_240: -779622234
+      Museo32x32 nueo_241: -998411852
+      Museo32x32 nueo_242: -1584676930
+      Museo32x32 nueo_243: 1425184978
+      Museo32x32 nueo_244: -1128574505
+      Museo32x32 nueo_245: -1913471796
+      Museo32x32 nueo_246: -1150669831
+      Museo32x32 nueo_247: -1452922981
+      Museo32x32 nueo_248: 1073308139
+      Museo32x32 nueo_249: 108013976
+      Museo32x32 nueo_25: -1667532985
+      Museo32x32 nueo_250: -1732221405
+      Museo32x32 nueo_251: -485898658
+      Museo32x32 nueo_252: 707470477
+      Museo32x32 nueo_253: 1016740112
+      Museo32x32 nueo_254: -2020608935
+      Museo32x32 nueo_255: -1474074006
+      Museo32x32 nueo_256: -552534406
+      Museo32x32 nueo_257: -485687906
+      Museo32x32 nueo_258: 1560251135
+      Museo32x32 nueo_259: 333875824
+      Museo32x32 nueo_26: 779221297
+      Museo32x32 nueo_27: -812536231
+      Museo32x32 nueo_28: -1604440656
+      Museo32x32 nueo_29: 2142941749
+      Museo32x32 nueo_3: 4364954955361647168
+      Museo32x32 nueo_30: -570729354
+      Museo32x32 nueo_31: -1412963849
+      Museo32x32 nueo_32: -410211137
+      Museo32x32 nueo_33: 488043215
+      Museo32x32 nueo_34: 957603557
+      Museo32x32 nueo_35: -1294067055
+      Museo32x32 nueo_36: -685385849
+      Museo32x32 nueo_37: -1618017504
+      Museo32x32 nueo_38: -1148761608
+      Museo32x32 nueo_39: 2044766569
+      Museo32x32 nueo_4: -6500316909959925395
+      Museo32x32 nueo_40: 220355572
+      Museo32x32 nueo_41: 239090943
+      Museo32x32 nueo_42: 1641910997
+      Museo32x32 nueo_43: 1076469182
+      Museo32x32 nueo_44: -1276351191
+      Museo32x32 nueo_45: 778878588
+      Museo32x32 nueo_46: -751670029
+      Museo32x32 nueo_47: 760471449
+      Museo32x32 nueo_48: 1941332129
+      Museo32x32 nueo_49: -188043088
+      Museo32x32 nueo_5: -6614094908229447115
+      Museo32x32 nueo_50: 1672277778
+      Museo32x32 nueo_51: -1004766504
+      Museo32x32 nueo_52: 1558019216
+      Museo32x32 nueo_53: -114264888
+      Museo32x32 nueo_54: 1829090678
+      Museo32x32 nueo_55: 1967798206
+      Museo32x32 nueo_56: -781586816
+      Museo32x32 nueo_57: 1039213304
+      Museo32x32 nueo_58: 884429612
+      Museo32x32 nueo_59: -2056029657
+      Museo32x32 nueo_6: -1789869101541878681
+      Museo32x32 nueo_60: -694602944
+      Museo32x32 nueo_61: 2028036661
+      Museo32x32 nueo_62: -170291024
+      Museo32x32 nueo_63: 2094437425
+      Museo32x32 nueo_64: -428207800
+      Museo32x32 nueo_65: -703447248
+      Museo32x32 nueo_66: 799331725
+      Museo32x32 nueo_67: 1188834687
+      Museo32x32 nueo_68: -1308943183
+      Museo32x32 nueo_69: 1675691488
+      Museo32x32 nueo_7: 3453744613537341506
+      Museo32x32 nueo_70: 1996612869
+      Museo32x32 nueo_71: -2137004440
+      Museo32x32 nueo_72: 1051581677
+      Museo32x32 nueo_73: -2096798308
+      Museo32x32 nueo_74: 758514616
+      Museo32x32 nueo_75: -1898315474
+      Museo32x32 nueo_76: -1287648509
+      Museo32x32 nueo_77: -2020140704
+      Museo32x32 nueo_78: 1881134270
+      Museo32x32 nueo_79: -1713042335
+      Museo32x32 nueo_8: 4182838038489457915
+      Museo32x32 nueo_80: -1941529985
+      Museo32x32 nueo_81: -163637562
+      Museo32x32 nueo_82: 801781209
+      Museo32x32 nueo_83: -1727262014
+      Museo32x32 nueo_84: -1821262262
+      Museo32x32 nueo_85: 830959487
+      Museo32x32 nueo_86: -1960238228
+      Museo32x32 nueo_87: -98469503
+      Museo32x32 nueo_88: -828078332
+      Museo32x32 nueo_89: -1097416487
+      Museo32x32 nueo_9: 3033320606873292908
+      Museo32x32 nueo_90: -382080663
+      Museo32x32 nueo_91: -1273007734
+      Museo32x32 nueo_92: 1588653801
+      Museo32x32 nueo_93: -22199990
+      Museo32x32 nueo_94: -908328913
+      Museo32x32 nueo_95: -1802769606
+      Museo32x32 nueo_96: 1278725255
+      Museo32x32 nueo_97: -701789876
+      Museo32x32 nueo_98: -1707572082
+      Museo32x32 nueo_99: -217299147
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

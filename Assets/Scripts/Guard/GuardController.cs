@@ -2,95 +2,73 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 
-/// <summary>
-/// Controlador principal del comportamiento del guardia.
-/// Maneja patrullaje, persecución, investigación y detección del jugador.
-/// </summary>
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class GuardController : MonoBehaviour
 {
-    // ====== ENUMS Y ESTADOS ======
     public enum GuardState 
     { 
-        Patrolling,     // Patrullando entre puntos
-        Chasing,        // Persiguiendo al jugador
-        Investigating,  // Investigando un sonido o última posición conocida
-        Rotating        // Rotando hacia el siguiente punto de patrulla
+        Patrolling,
+        Chasing,
+        Investigating,
+        Rotating,
+        ReturningToSpawn
     }
     
     [Header("Estado Actual (Debug)")]
     [SerializeField] private GuardState currentState = GuardState.Patrolling;
     
-    // ====== CONFIGURACIÓN DE PATRULLAJE ======
-    [Header(" Configuración de Patrullaje")]
-    [Tooltip("Puntos de patrullaje del guardia")]
+    [Header("Configuración de Patrullaje")]
     [SerializeField] private Transform[] patrolPoints;
-    [Tooltip("Velocidad de movimiento normal")]
     [SerializeField] private float patrolSpeed = 2f;
-    [Tooltip("Tiempo de espera en cada punto")]
     [SerializeField] private float waitTimeAtPoint = 2f;
-    [Tooltip("Velocidad de rotación (grados/segundo)")]
     [SerializeField] private float rotationSpeed = 90f;
-    [Tooltip("Umbral para considerar que llegó al destino")]
     [SerializeField] private float destinationThreshold = 0.5f;
     
-    // ====== CONFIGURACIÓN DE VISIÓN ======
     [Header("Configuración de Visión")]
-    [Tooltip("Distancia máxima de visión")]
     [SerializeField] private float visionRange = 8f;
-    [Tooltip("Ángulo del cono de visión")]
     [SerializeField] private float visionAngle = 90f;
-    [Tooltip("Capas que bloquean la visión")]
     [SerializeField] private LayerMask obstacleLayer;
-    [Tooltip("Capa del jugador")]
     [SerializeField] private LayerMask playerLayer;
     
-    // ====== CONFIGURACIÓN DE PERSECUCIÓN ======
     [Header("Configuración de Persecución")]
-    [Tooltip("Velocidad al perseguir")]
     [SerializeField] private float chaseSpeed = 4f;
-    [Tooltip("Distancia para arrestar al jugador")]
     [SerializeField] private float arrestDistance = 1.5f;
-    [Tooltip("Tiempo máximo persiguiendo sin ver al jugador")]
     [SerializeField] private float maxChaseTime = 3f;
     
-    // ====== CONFIGURACIÓN DE INVESTIGACIÓN ======
     [Header("Configuración de Investigación")]
-    [Tooltip("Velocidad al investigar")]
     [SerializeField] private float investigateSpeed = 1.5f;
-    [Tooltip("Tiempo investigando una posición")]
     [SerializeField] private float investigateTime = 5f;
     
-    // ====== CONFIGURACIÓN VISUAL ======
     [Header("Configuración Visual")]
     [SerializeField] private Color patrolColor = Color.green;
     [SerializeField] private Color chaseColor = Color.red;
     [SerializeField] private Color investigateColor = Color.yellow;
     [SerializeField] private Color rotateColor = Color.cyan;
+    [SerializeField] private Color returnColor = Color.blue;
     
-    // ====== REFERENCIAS ======
     private NavMeshAgent navAgent;
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private GameManager gameManager;
     private VisionCone visionCone;
     
-    // ====== VARIABLES DE CONTROL ======
     private int currentPatrolIndex = 0;
     private Vector3 lastKnownPlayerPosition;
-    private Vector3 initialPosition;
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
+    private Vector3 originalScale;
     private float timeSinceLastSawPlayer = 0f;
     private bool isWaitingAtPoint = false;
     private bool hasReachedDestination = false;
     private Coroutine currentStateCoroutine;
+    private bool hasPatrolPoints;
+    private bool isDisabled = false;
     
-    // ====== PROPIEDADES PÚBLICAS ======
     public float VisionRange => visionRange;
     public float VisionAngle => visionAngle;
     public GuardState CurrentState => currentState;
     
-    // ====== INICIALIZACIÓN ======
     void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -102,13 +80,18 @@ public class GuardController : MonoBehaviour
         {
             player = playerObj.transform;
         }
-        else
-        {
-            Debug.LogWarning(" No se encontró el jugador con tag 'Player'");
-        }
         
         gameManager = GameManager.Instance;
-        initialPosition = transform.position;
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+        
+        spawnPosition = transform.position;
+        spawnRotation = transform.rotation;
+        originalScale = transform.localScale;
+        hasPatrolPoints = patrolPoints != null && patrolPoints.Length > 0;
+        
         ConfigureNavMeshFor2D();
     }
     
@@ -124,22 +107,26 @@ public class GuardController : MonoBehaviour
             visionCone.Initialize(this, obstacleLayer);
         }
         
-        if (patrolPoints == null || patrolPoints.Length == 0)
+        InitializeState();
+    }
+    
+    void InitializeState()
+    {
+        if (hasPatrolPoints)
         {
-            Debug.LogError("No hay puntos de patrullaje asignados!");
-            enabled = false;
-            return;
+            ChangeState(GuardState.Patrolling);
         }
-        
-        ChangeState(GuardState.Patrolling);
+        else
+        {
+            transform.rotation = spawnRotation;
+            ChangeState(GuardState.Rotating);
+        }
     }
     
     void Update()
     {
-        // >> SFX: Aquí se podrían gestionar sonidos de pasos continuos
-        // basados en la velocidad (navAgent.velocity.magnitude).
-        // Unos pasos para patrullar/investigar y otros más rápidos para perseguir.
-
+        if (isDisabled) return;
+        
         UpdateFacingDirection();
         
         bool canSeePlayer = CanSeePlayer();
@@ -164,10 +151,12 @@ public class GuardController : MonoBehaviour
             case GuardState.Rotating:
                 UpdateRotating();
                 break;
+            case GuardState.ReturningToSpawn:
+                UpdateReturningToSpawn();
+                break;
         }
     }
     
-    // ====== CONFIGURACIÓN INICIAL ======
     private void ConfigureNavMeshFor2D()
     {
         navAgent.updateRotation = false;
@@ -177,17 +166,13 @@ public class GuardController : MonoBehaviour
         navAgent.acceleration = 8f;
     }
     
-    // ====== SISTEMA DE ESTADOS ======
     private void ChangeState(GuardState newState)
     {
-        if (currentState == newState) return;
-        
-        Debug.Log($"Guardia cambiando de {currentState} a {newState}");
+        if (currentState == newState || isDisabled) return;
         
         StopCurrentStateCoroutine();
         isWaitingAtPoint = false;
         
-        // evitar un bucle infinito entre Patrolling -> Rotating -> Patrolling.
         if (newState != GuardState.Rotating)
         {
             hasReachedDestination = false;
@@ -209,6 +194,9 @@ public class GuardController : MonoBehaviour
             case GuardState.Rotating:
                 StartRotating();
                 break;
+            case GuardState.ReturningToSpawn:
+                StartReturningToSpawn();
+                break;
         }
         
         UpdateVisuals();
@@ -223,20 +211,23 @@ public class GuardController : MonoBehaviour
         }
     }
     
-    // ====== ESTADO: PATRULLAJE ======
     private void StartPatrolling()
     {
+        if (!hasPatrolPoints)
+        {
+            ChangeState(GuardState.Rotating);
+            return;
+        }
+        
         navAgent.speed = patrolSpeed;
         navAgent.isStopped = false;
         hasReachedDestination = false;
 
-        // Solo busca el punto más cercano la primera vez que patrulla.
         if (currentPatrolIndex < 0 || currentPatrolIndex >= patrolPoints.Length)
         {
             FindClosestPatrolPoint();
         }
 
-        // Asegura que el guardia siempre tenga un destino inicial.
         MoveToPatrolPoint();
     }
     
@@ -259,32 +250,30 @@ public class GuardController : MonoBehaviour
         isWaitingAtPoint = true;
         navAgent.isStopped = true;
         
-        Debug.Log($" Esperando en punto de patrulla {currentPatrolIndex}");
-        
         yield return new WaitForSeconds(waitTimeAtPoint);
         
         isWaitingAtPoint = false;
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
         
-        // Cambiar a estado de rotación antes de moverse al siguiente punto.
         ChangeState(GuardState.Rotating);
     }
     
     private void MoveToPatrolPoint()
     {
-        if (patrolPoints.Length == 0) return;
+        if (!hasPatrolPoints) return;
         
         Transform targetPoint = patrolPoints[currentPatrolIndex];
         if (targetPoint != null)
         {
             navAgent.SetDestination(targetPoint.position);
             navAgent.isStopped = false;
-            Debug.Log($"Moviendo a punto de patrulla {currentPatrolIndex}");
         }
     }
     
     private void FindClosestPatrolPoint()
     {
+        if (!hasPatrolPoints) return;
+        
         float minDistance = float.MaxValue;
         
         for (int i = 0; i < patrolPoints.Length; i++)
@@ -300,39 +289,59 @@ public class GuardController : MonoBehaviour
         }
     }
     
-    // ====== ESTADO: ROTACIÓN ======
     private void StartRotating()
     {
         navAgent.isStopped = true;
         navAgent.velocity = Vector3.zero;
-        currentStateCoroutine = StartCoroutine(RotateTowardsNextPoint());
+        
+        if (hasPatrolPoints && patrolPoints[currentPatrolIndex] != null)
+        {
+            currentStateCoroutine = StartCoroutine(RotateTowardsTarget(patrolPoints[currentPatrolIndex].position, GuardState.Patrolling));
+        }
+        else
+        {
+            currentStateCoroutine = StartCoroutine(StationaryGuard());
+        }
     }
     
     private void UpdateRotating()
     {
-        // La rotación se maneja completamente en la corrutina.
     }
     
-    private IEnumerator RotateTowardsNextPoint()
+    private IEnumerator RotateTowardsTarget(Vector3 targetPosition, GuardState nextState)
     {
-        Transform targetPoint = patrolPoints[currentPatrolIndex];
-        Vector3 direction = (targetPoint.position - transform.position).normalized;
+        Vector3 direction = (targetPosition - transform.position).normalized;
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         
+        yield return StartCoroutine(RotateToAngle(targetAngle));
+        
+        ChangeState(nextState);
+    }
+    
+    private IEnumerator StationaryGuard()
+    {
+        transform.rotation = spawnRotation;
+        navAgent.isStopped = true;
+        navAgent.velocity = Vector3.zero;
+        
+        while (!isDisabled)
+        {
+            yield return null;
+        }
+    }
+    
+    private IEnumerator RotateToAngle(float targetAngle)
+    {
         float startAngle = NormalizeAngle(transform.eulerAngles.z);
         targetAngle = NormalizeAngle(targetAngle);
         float angleDifference = Mathf.DeltaAngle(startAngle, targetAngle);
         
-        if (Mathf.Abs(angleDifference) < 5f)
-        {
-            ChangeState(GuardState.Patrolling);
-            yield break;
-        }
+        if (Mathf.Abs(angleDifference) < 5f) yield break;
         
         float rotationTime = Mathf.Abs(angleDifference) / rotationSpeed;
         float elapsedTime = 0f;
         
-        while (elapsedTime < rotationTime)
+        while (elapsedTime < rotationTime && !isDisabled)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / rotationTime;
@@ -342,7 +351,6 @@ public class GuardController : MonoBehaviour
         }
         
         transform.rotation = Quaternion.Euler(0, 0, targetAngle);
-        ChangeState(GuardState.Patrolling);
     }
     
     private float NormalizeAngle(float angle)
@@ -352,21 +360,18 @@ public class GuardController : MonoBehaviour
         return angle;
     }
     
-    // ====== ESTADO: PERSECUCIÓN ======
     private void StartChasing()
     {
-        // >> SFX: ¡Sonido de ALERTA! Un sonido icónico tipo "!" para indicar que ha visto al jugador.
         navAgent.speed = chaseSpeed;
         navAgent.isStopped = false;
         timeSinceLastSawPlayer = 0f;
-        Debug.Log("¡Persiguiendo al jugador!");
     }
     
     private void UpdateChasing(bool canSeePlayer)
     {
         if (player == null)
         {
-            ChangeState(GuardState.Patrolling);
+            ReturnToNormalState();
             return;
         }
         
@@ -375,21 +380,13 @@ public class GuardController : MonoBehaviour
             lastKnownPlayerPosition = player.position;
             navAgent.SetDestination(player.position);
             timeSinceLastSawPlayer = 0f;
-            
-            if (Vector3.Distance(transform.position, player.position) <= arrestDistance)
-            {
-                ArrestPlayer();
-            }
         }
         else
         {
             timeSinceLastSawPlayer += Time.deltaTime;
             
-            // Si pierde al jugador, investiga su última posición.
             if (timeSinceLastSawPlayer >= maxChaseTime)
             {
-                // >> SFX: Un sonido de "confusión" o "perder el rastro".
-                Debug.Log("Perdí de vista al jugador, investigando...");
                 ChangeState(GuardState.Investigating);
             }
             else
@@ -401,37 +398,27 @@ public class GuardController : MonoBehaviour
     
     private void ArrestPlayer()
     {
-        // >> SFX: Sonido de "captura"
-        Debug.Log("⚠¡Jugador arrestado!");
-        
         if (gameManager != null)
         {
             gameManager.OnPlayerArrested();
         }
-        
-        ResetPosition();
-        ChangeState(GuardState.Patrolling);
     }
     
-    // ====== ESTADO: INVESTIGACIÓN ======
     private void StartInvestigating()
     {
         navAgent.speed = investigateSpeed;
         navAgent.isStopped = false;
         navAgent.SetDestination(lastKnownPlayerPosition);
         currentStateCoroutine = StartCoroutine(InvestigateArea());
-        Debug.Log($"Investigando posición: {lastKnownPlayerPosition}");
     }
     
     private void UpdateInvestigating()
     {
-        // La investigación se maneja en la corrutina.
     }
     
     private IEnumerator InvestigateArea()
     {
-        // Esperar a llegar al punto de investigación.
-        while (navAgent.pathPending || navAgent.remainingDistance > destinationThreshold)
+        while ((navAgent.pathPending || navAgent.remainingDistance > destinationThreshold) && !isDisabled)
         {
             yield return null;
         }
@@ -440,19 +427,17 @@ public class GuardController : MonoBehaviour
         float lookAroundInterval = 1f;
         int lookDirection = 0;
         
-        while (investigateTimer < investigateTime)
+        while (investigateTimer < investigateTime && !isDisabled)
         {
             investigateTimer += Time.deltaTime;
             
             if ((int)(investigateTimer / lookAroundInterval) > lookDirection)
             {
-                // >> SFX: Sonido sutil de "mirar alrededor" o "búsqueda".
                 lookDirection++;
                 float randomAngle = Random.Range(0f, 360f);
                 transform.rotation = Quaternion.Euler(0, 0, randomAngle);
             }
             
-            // Si ve al jugador mientras investiga, vuelve a perseguirlo.
             if (CanSeePlayer())
             {
                 lastKnownPlayerPosition = player.position;
@@ -463,12 +448,64 @@ public class GuardController : MonoBehaviour
             yield return null;
         }
         
-        // >> SFX: Sonido de "no encontrar nada".
-        Debug.Log("No encontré nada, volviendo a patrullar");
-        ChangeState(GuardState.Patrolling);
+        ChangeState(GuardState.ReturningToSpawn);
     }
     
-    // ====== SISTEMA DE VISIÓN ======
+    private void StartReturningToSpawn()
+    {
+        navAgent.speed = patrolSpeed;
+        navAgent.isStopped = false;
+        navAgent.SetDestination(spawnPosition);
+    }
+    
+    private void UpdateReturningToSpawn()
+    {
+        if (!navAgent.pathPending && navAgent.remainingDistance < destinationThreshold)
+        {
+            ReturnToNormalState();
+        }
+    }
+    
+    private void ReturnToNormalState()
+    {
+        if (hasPatrolPoints)
+        {
+            FindClosestPatrolPoint();
+            ChangeState(GuardState.Patrolling);
+        }
+        else
+        {
+            ChangeState(GuardState.Rotating);
+        }
+    }
+    
+    public void ResetToSpawn()
+    {
+        isDisabled = false;
+        StopCurrentStateCoroutine();
+        
+        transform.position = spawnPosition;
+        transform.rotation = spawnRotation;
+        transform.localScale = originalScale;
+        navAgent.Warp(spawnPosition);
+        
+        currentPatrolIndex = 0;
+        lastKnownPlayerPosition = Vector3.zero;
+        timeSinceLastSawPlayer = 0f;
+        isWaitingAtPoint = false;
+        hasReachedDestination = false;
+        
+        InitializeState();
+    }
+    
+    public void DisableGuard()
+    {
+        isDisabled = true;
+        StopCurrentStateCoroutine();
+        navAgent.isStopped = true;
+        navAgent.velocity = Vector3.zero;
+    }
+    
     private bool CanSeePlayer()
     {
         if (player == null) return false;
@@ -492,41 +529,36 @@ public class GuardController : MonoBehaviour
     
     public Vector3 GetFacingDirection()
     {
-        // La dirección es hacia donde se mueve el NavMeshAgent.
-        if (navAgent.velocity.magnitude > 0.1f)
+        if (hasPatrolPoints && navAgent.velocity.magnitude > 0.1f)
         {
             return navAgent.velocity.normalized;
         }
-        // Si está quieto, usa la rotación del transform.
         float angle = (transform.eulerAngles.z + 90) * Mathf.Deg2Rad;
         return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
     }
     
     private void UpdateFacingDirection()
     {
-        // Rota el sprite en la dirección del movimiento, excepto cuando está en el estado de rotación manual.
-        if (navAgent.velocity.magnitude > 0.1f && currentState != GuardState.Rotating)
+        if (hasPatrolPoints && navAgent.velocity.magnitude > 0.1f && currentState != GuardState.Rotating)
         {
             Vector3 direction = navAgent.velocity.normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+        else if (!hasPatrolPoints && currentState == GuardState.Rotating)
+        {
+            transform.rotation = spawnRotation;
+        }
     }
     
-    // ====== EVENTOS EXTERNOS ======
     public void OnSoundHeard(Vector3 soundPosition)
     {
-        // No reaccionar a sonidos si ya está persiguiendo al jugador.
-        if (currentState == GuardState.Chasing) return;
-        
-        // >> SFX: Un sonido de "¿Qué fue eso?" o un "?" auditivo.
-        Debug.Log($"Escuché un sonido en {soundPosition}");
+        if (currentState == GuardState.Chasing || isDisabled) return;
         
         lastKnownPlayerPosition = soundPosition;
         ChangeState(GuardState.Investigating);
     }
     
-    // ====== UTILIDADES ======
     private void UpdateVisuals()
     {
         Color targetColor = patrolColor;
@@ -536,6 +568,7 @@ public class GuardController : MonoBehaviour
             case GuardState.Chasing: targetColor = chaseColor; break;
             case GuardState.Investigating: targetColor = investigateColor; break;
             case GuardState.Rotating: targetColor = rotateColor; break;
+            case GuardState.ReturningToSpawn: targetColor = returnColor; break;
         }
         
         if (spriteRenderer != null)
@@ -543,7 +576,6 @@ public class GuardController : MonoBehaviour
             spriteRenderer.color = targetColor;
         }
         
-        // El cono de visión siempre está activo para que el jugador pueda anticipar la detección.
         if (visionCone != null)
         {
             visionCone.SetVisible(true);
@@ -551,21 +583,18 @@ public class GuardController : MonoBehaviour
         }
     }
     
-    private void ResetPosition()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        navAgent.Warp(initialPosition);
-        currentPatrolIndex = 0;
-        lastKnownPlayerPosition = Vector3.zero;
-        timeSinceLastSawPlayer = 0f;
-        isWaitingAtPoint = false;
-        hasReachedDestination = false;
+        if (other.CompareTag("Player") && !isDisabled)
+        {
+            DisableGuard();
+            ArrestPlayer();
+        }
     }
     
-    // ====== GIZMOS PARA DEBUG ======
     void OnDrawGizmos()
     {
-        // Dibujar puntos y rutas de patrullaje para facilitar el diseño de niveles.
-        if (patrolPoints != null && patrolPoints.Length > 0)
+        if (hasPatrolPoints && patrolPoints.Length > 0)
         {
             Gizmos.color = Color.blue;
             for (int i = 0; i < patrolPoints.Length; i++)
@@ -582,7 +611,9 @@ public class GuardController : MonoBehaviour
             }
         }
         
-        // Dibujar rango de arresto.
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(spawnPosition, 0.5f);
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, arrestDistance);
     }

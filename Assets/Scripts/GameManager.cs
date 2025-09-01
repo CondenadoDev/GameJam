@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
@@ -19,10 +20,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform catTransform;
     [SerializeField] private CatController catController;
     
+    [Header("UI References")]
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private Canvas fadeCanvas;
+    
     [Header("Detection System")]
-    [SerializeField] private float detectionCooldown = 1.5f;
-    private float lastLifeLossTime = -999f;
-    private bool isProcessingDetection = false;
+    [SerializeField] private float arrestCooldown = 2f;
+    private bool isProcessingArrest = false;
+    private float lastArrestTime = -999f;
     
     public System.Action<int> OnLivesChanged;
     public System.Action<int, int> OnObjectivesChanged;
@@ -37,7 +42,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -45,14 +49,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        InitializeGame();
-    }
-
     void Start()
     {
+        InitializeGame();
         FindReferences();
+        CreateFadeUI();
         UpdateUI();
     }
     
@@ -62,8 +63,8 @@ public class GameManager : MonoBehaviour
         objectivesCollected = 0;
         gameOver = false;
         missionComplete = false;
-        isProcessingDetection = false;
-        lastLifeLossTime = -999f;
+        isProcessingArrest = false;
+        lastArrestTime = -999f;
     }
     
     void FindReferences()
@@ -76,44 +77,153 @@ public class GameManager : MonoBehaviour
             if (catSpawnPoint == Vector3.zero) catSpawnPoint = catTransform.position;
         }
     }
+    
+    void CreateFadeUI()
+    {
+        if (fadeCanvas == null)
+        {
+            GameObject canvasGO = new GameObject("Fade Canvas");
+            fadeCanvas = canvasGO.AddComponent<Canvas>();
+            fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            fadeCanvas.sortingOrder = 1000;
+            
+            CanvasScaler scaler = canvasGO.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920, 1080);
+            
+            canvasGO.AddComponent<GraphicRaycaster>();
+        }
+        
+        if (fadeImage == null)
+        {
+            GameObject imageGO = new GameObject("Fade Image");
+            imageGO.transform.SetParent(fadeCanvas.transform, false);
+            
+            fadeImage = imageGO.AddComponent<Image>();
+            fadeImage.color = new Color(0, 0, 0, 0);
+            
+            RectTransform rectTransform = fadeImage.GetComponent<RectTransform>();
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.sizeDelta = Vector2.zero;
+            rectTransform.anchoredPosition = Vector2.zero;
+        }
+    }
 
     public void OnPlayerArrested()
     {
-        if (gameOver || isProcessingDetection) return;
-
-        if (Time.time < lastLifeLossTime + detectionCooldown)
-        {
-            return;
-        }
-
+        if (gameOver || isProcessingArrest) return;
+        
+        if (Time.time < lastArrestTime + arrestCooldown) return;
+        
+        lastArrestTime = Time.time;
+        ResetAllGuards();
         StartCoroutine(ProcessArrest());
+    }
+    
+    void ResetAllGuards()
+    {
+        GuardController[] allGuards = FindObjectsOfType<GuardController>();
+        foreach (GuardController guard in allGuards)
+        {
+            guard.DisableGuard();
+        }
+    }
+    
+    void ResetAllGuardsToSpawn()
+    {
+        GuardController[] allGuards = FindObjectsOfType<GuardController>();
+        foreach (GuardController guard in allGuards)
+        {
+            guard.ResetToSpawn();
+        }
     }
 
     IEnumerator ProcessArrest()
     {
-        isProcessingDetection = true;
-        lastLifeLossTime = Time.time;
+        isProcessingArrest = true;
         
+        // 1. PRIMERO: Deshabilitar TODOS los guardias inmediatamente
+        ResetAllGuards();
+        
+        if (catController != null) 
+        {
+            catController.enabled = false;
+            
+            Rigidbody2D catRb = catController.GetComponent<Rigidbody2D>();
+            if (catRb != null)
+            {
+                catRb.linearVelocity = Vector2.zero;
+                catRb.angularVelocity = 0f;
+            }
+        }
+        
+        // 3. Fade a negro
+        yield return StartCoroutine(FadeToBlack(0.5f));
+        
+        // 4. Procesar pérdida de vida
         currentLives--;
         OnLivesChanged?.Invoke(currentLives);
     
         if (currentLives <= 0)
         {
             EndGame(GameEndType.Defeat_NoLives);
+            yield break;
         }
-        else
+        
+        // 5. Reposicionar jugador
+        ResetCatPosition();
+        
+        // 6. Esperar un momento adicional
+        yield return new WaitForSeconds(0.3f);
+        
+        // 7. AHORA SÍ: Resetear guardias a sus spawns (esto los reactivará)
+        ResetAllGuardsToSpawn();
+        
+        // 8. Fade desde negro
+        yield return StartCoroutine(FadeFromBlack(0.5f));
+        
+        // 9. Reactivar jugador
+        if (catController != null) 
         {
-            if (catController != null) catController.enabled = false;
-            
-            yield return new WaitForSeconds(0.5f);
-            
-            ResetCatPosition();
-        
-            if (catController != null) catController.enabled = true;
+            catController.enabled = true;
         }
         
-        yield return new WaitForSeconds(detectionCooldown);
-        isProcessingDetection = false;
+        isProcessingArrest = false;
+    }
+    
+    IEnumerator FadeToBlack(float duration)
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeImage.color;
+        Color targetColor = new Color(0, 0, 0, 1);
+        
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            fadeImage.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+        
+        fadeImage.color = targetColor;
+    }
+    
+    IEnumerator FadeFromBlack(float duration)
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeImage.color;
+        Color targetColor = new Color(0, 0, 0, 0);
+        
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            fadeImage.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+        
+        fadeImage.color = targetColor;
     }
     
     public void OnObjectiveCollected()
@@ -144,10 +254,12 @@ public class GameManager : MonoBehaviour
         if (catTransform != null)
         {
             catTransform.position = catSpawnPoint;
+            
             Rigidbody2D catRb = catTransform.GetComponent<Rigidbody2D>();
             if (catRb != null)
             {
                 catRb.linearVelocity = Vector2.zero;
+                catRb.angularVelocity = 0f;
             }
         }
     }
@@ -163,10 +275,11 @@ public class GameManager : MonoBehaviour
         }
         
         OnGameEnd?.Invoke(endType);
-        StartCoroutine(AutoRestartAfterDelay(5f));
+        
+        StartCoroutine(DelayedRestart(3f));
     }
     
-    IEnumerator AutoRestartAfterDelay(float delay)
+    IEnumerator DelayedRestart(float delay)
     {
         yield return new WaitForSeconds(delay);
         RestartGame();
@@ -174,7 +287,7 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (gameOver && Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             RestartGame();
         }
@@ -190,7 +303,7 @@ public class GameManager : MonoBehaviour
         OnLivesChanged?.Invoke(currentLives);
         OnObjectivesChanged?.Invoke(objectivesCollected, totalObjectives);
     }
-    // Este método permite que otros scripts pregunten cuántos objetivos se han recolectado.
+    
     public int GetObjectivesCollected()
     {
         return objectivesCollected;

@@ -21,6 +21,7 @@ public class ExitPointController : MonoBehaviour
     private GameManager gameManager;
     
     private bool isActive = false;
+    private bool wasPlayerInRange = false;
     private float pulseTimer = 0f;
     
     void Start()
@@ -78,8 +79,6 @@ public class ExitPointController : MonoBehaviour
         
         if (!wasActive && isActive)
         {
-            // >> SFX: Reproducir un sonido de "activación" o "energía" para notificar
-            // al jugador que la salida ya está disponible.
             Debug.Log("Punto de salida ACTIVO - el jugador puede escapar");
         }
     }
@@ -96,8 +95,6 @@ public class ExitPointController : MonoBehaviour
         
         if (isActive)
         {
-            // >> SFX: Aquí podría haber un sonido de "zumbido" o "hum" sutil y en bucle
-            // para indicar que la salida está activa y esperando.
             float scaleFactor = 1f + (pulseFactor * 0.1f);
             transform.localScale = Vector3.one * scaleFactor;
         }
@@ -108,8 +105,9 @@ public class ExitPointController : MonoBehaviour
         if (playerTransform == null || gameManager == null) return;
         
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        bool playerInRange = distanceToPlayer <= activationRange;
         
-        if (distanceToPlayer <= activationRange)
+        if (playerInRange && !wasPlayerInRange)
         {
             if (isActive)
             {
@@ -120,13 +118,14 @@ public class ExitPointController : MonoBehaviour
                 ShowInactiveMessage();
             }
         }
+        
+        wasPlayerInRange = playerInRange;
     }
     
     void TriggerExit()
     {
         Debug.Log("Jugador llegó al punto de salida");
         
-        // >> SFX: Este es el lugar principal para el sonido de éxito.
         if (audioSource != null && exitSound != null)
         {
             audioSource.PlayOneShot(exitSound);
@@ -137,16 +136,12 @@ public class ExitPointController : MonoBehaviour
             gameManager.OnReachExit();
         }
         
-        // Desactiva el objeto para que no se pueda volver a activar.
         this.enabled = false;
-        
         StartCoroutine(ExitEffect());
     }
     
     void ShowInactiveMessage()
     {
-        // >> SFX: Reproducir un sonido de "error" o "acceso denegado"
-        // para informar al jugador que aún no puede usar la salida.
         Debug.Log("No puedes escapar sin recolectar al menos un objetivo");
     }
     
