@@ -2,60 +2,44 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
-/// <summary>
-/// Controlador del jugador (gato).
-/// Maneja movimiento, maullido para distracción y habilidad de concentración.
-/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class CatController : MonoBehaviour
 {
-    // ====== CONFIGURACIÓN DE MOVIMIENTO ======
     [Header("Configuración de Movimiento")]
-    [Tooltip("Velocidad de movimiento normal")]
     [SerializeField] private float moveSpeed = 5f;
-    
-    [Tooltip("Multiplicador de velocidad al caminar sigiloso")]
     [SerializeField] private float walkSpeedMultiplier = 0.5f;
 
-    // ====== HABILIDAD DE MAULLIDO ======
-    [Header("🐱 Habilidad de Maullido (Distracción)")]
-    [Tooltip("Rango mínimo del maullido")]
+    [Header("Habilidad de Maullido")]
     [SerializeField] private float minPurringRange = 2f;
-    
-    [Tooltip("Rango máximo del maullido (con carga completa)")]
     [SerializeField] private float maxPurringRange = 10f;
-    
-    [Tooltip("Tiempo para cargar el maullido al máximo")]
     [SerializeField] private float purrChargeTime = 1.5f;
-    
-    [Tooltip("Tiempo de enfriamiento entre maullidos")]
     [SerializeField] private float purringCooldown = 3f;
 
-    // ====== HABILIDAD DE CONCENTRACIÓN ======
-    [Header(" Habilidad de Concentración")]
-    [Tooltip("Rango de detección de enemigos")]
+    [Header("Habilidad de Concentración")]
     [SerializeField] private float concentrationRange = 15f;
-    
-    [Tooltip("Mostrar indicadores visuales de enemigos detectados")]
     [SerializeField] private bool showEnemyIndicators = true;
 
-    // ====== EFECTOS VISUALES ======
+    [Header("Habilidad de Bolas de Pelo")]
+    [SerializeField] private GameObject hairballPrefab;
+    [SerializeField] private Transform hairballSpawnPoint;
+    [SerializeField] private float hairballSpeed = 8f;
+    [SerializeField] private float hairballCooldown = 2f;
+    [SerializeField] private int maxActiveHairballs = 3;
+
     [Header("Efectos Visuales")]
-    [Tooltip("Sprite para el efecto visual del maullido")]
     [SerializeField] private SpriteRenderer purrVfxSprite;
-    
-    [Tooltip("Color del efecto de maullido")]
     [SerializeField] private Color purrEffectColor = new Color(1f, 1f, 0f, 0.5f);
-    
-    [Tooltip("Duración del fade out del efecto")]
     [SerializeField] private float purrFadeOutDuration = 0.25f;
 
-    // ====== REFERENCIAS Y VARIABLES PRIVADAS ======
+    [Header("Animaciones")]
+    [SerializeField] private Animator animator;
+
     private Rigidbody2D rb;
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction purringAction;
     private InputAction concentrationAction;
+    private InputAction hairballAction;
     
     private bool isChargingPurr = false;
     private bool isConcentrating = false;
@@ -64,23 +48,67 @@ public class CatController : MonoBehaviour
     private float purrHoldTime = 0f;
     private float currentPurringRange = 0f;
     private float lastPurrTime = -999f;
+    private float lastHairballTime = -999f;
     private Vector2 moveInput;
     
     private int totalMeowsUsed = 0;
     private int guardsDistracted = 0;
+    private int activeHairballs = 0;
+
+    private static Vector2 lastLoggedInput = Vector2.zero;
+    private static bool lastLoggedMoving = false;
     
-    // ====== INICIALIZACIÓN ======
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         
-        rb.gravityScale = 0f; // Sin gravedad para vista top-down
-        rb.freezeRotation = true; // No rotar por físicas
+        if (animator == null)
+            animator = GetComponent<Animator>();
         
-        moveAction = playerInput.actions["Move"];
-        purringAction = playerInput.actions["Purring"];
-        concentrationAction = playerInput.actions["Concentration"];
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
+        
+        try
+        {
+            moveAction = playerInput.actions["Move"];
+            Debug.Log("Acción 'Move' encontrada");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError("No se encontró la acción 'Move'");
+        }
+        
+        try
+        {
+            purringAction = playerInput.actions["Purring"];
+            Debug.Log("Acción 'Purring' encontrada");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError("No se encontró la acción 'Purring'");
+        }
+        
+        try
+        {
+            concentrationAction = playerInput.actions["Concentration"];
+            Debug.Log("Acción 'Concentration' encontrada");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError("No se encontró la acción 'Concentration'");
+        }
+        
+        try
+        {
+            hairballAction = playerInput.actions["Hairball"];
+            Debug.Log("Acción 'Hairball' encontrada");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("No se encontró la acción 'Hairball' - Las bolas de pelo estarán deshabilitadas");
+            hairballAction = null;
+        }
 
         if (purrVfxSprite != null)
         {
@@ -88,40 +116,59 @@ public class CatController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning(" No hay sprite asignado para el efecto visual del maullido");
+            Debug.LogWarning("No hay sprite asignado para el efecto visual del maullido");
         }
     }
     
     void OnEnable()
     {
-        purringAction.performed += OnPurringPerformed;
-        purringAction.canceled += OnPurringCanceled;
-        concentrationAction.performed += OnConcentrationPerformed;
-        concentrationAction.canceled += OnConcentrationCanceled;
+        if (purringAction != null)
+        {
+            purringAction.performed += OnPurringPerformed;
+            purringAction.canceled += OnPurringCanceled;
+        }
+    
+        if (concentrationAction != null)
+        {
+            concentrationAction.performed += OnConcentrationPerformed;
+            concentrationAction.canceled += OnConcentrationCanceled;
+        }
+    
+        if (hairballAction != null)
+        {
+            hairballAction.performed += OnHairballPerformed;
+        }
     }
     
     void OnDisable()
     {
-        purringAction.performed -= OnPurringPerformed;
-        purringAction.canceled -= OnPurringCanceled;
-        concentrationAction.performed -= OnConcentrationPerformed;
-        concentrationAction.canceled -= OnConcentrationCanceled;
+        if (purringAction != null)
+        {
+            purringAction.performed -= OnPurringPerformed;
+            purringAction.canceled -= OnPurringCanceled;
+        }
+    
+        if (concentrationAction != null)
+        {
+            concentrationAction.performed -= OnConcentrationPerformed;
+            concentrationAction.canceled -= OnConcentrationCanceled;
+        }
+    
+        if (hairballAction != null)
+        {
+            hairballAction.performed -= OnHairballPerformed;
+        }
     }
     
     void Update()
     {
         HandleMovementInput();
         HandlePurrCharge();
+        UpdateAnimations();
         
         if (isConcentrating)
         {
             DetectNearbyEnemies();
-        }
-        
-        if (Time.time < lastPurrTime + purringCooldown)
-        {
-            float remainingCooldown = (lastPurrTime + purringCooldown) - Time.time;
-            Debug.Log($" Cooldown del maullido: {remainingCooldown:F1}s");
         }
     }
 
@@ -130,12 +177,15 @@ public class CatController : MonoBehaviour
         HandleMovement();
     }
     
-    // ====== SISTEMA DE MOVIMIENTO ======
     void HandleMovementInput()
     {
         moveInput = moveAction.ReadValue<Vector2>();
-        
-        // Detectar si está caminando sigiloso (Shift)
+    
+        if (moveInput.magnitude > 1f)
+        {
+            moveInput = moveInput.normalized;
+        }
+    
         isWalking = Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed;
     }
     
@@ -143,16 +193,45 @@ public class CatController : MonoBehaviour
     {
         float currentSpeed = moveSpeed * (isWalking ? walkSpeedMultiplier : 1f);
         rb.linearVelocity = moveInput * currentSpeed;
-        
-        // Rotar el sprite según la dirección (opcional)
-        if (moveInput.magnitude > 0.1f)
-        {
-            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
-        }
     }
 
-    // ====== SISTEMA DE MAULLIDO ======
+    void UpdateAnimations()
+    {
+        if (animator == null) return;
+    
+        bool isMoving = moveInput.magnitude > 0.1f;
+    
+        bool inputChanged = Vector2.Distance(moveInput, lastLoggedInput) > 0.01f;
+        bool movementStateChanged = isMoving != lastLoggedMoving;
+        
+        if (inputChanged || movementStateChanged)
+        {
+            Debug.Log($"CAMBIO - Input: ({moveInput.x:F2}, {moveInput.y:F2}) | Magnitud: {moveInput.magnitude:F2} | isMoving: {isMoving}");
+            
+            lastLoggedInput = moveInput;
+            lastLoggedMoving = isMoving;
+        }
+    
+        if (moveInput.magnitude > 1f)
+        {
+            moveInput = moveInput.normalized;
+            Debug.Log($"INPUT NORMALIZADO - Nuevo valor: ({moveInput.x:F2}, {moveInput.y:F2})");
+        }
+    
+        if (isMoving)
+        {
+            animator.SetFloat("Horizontal", moveInput.x);
+            animator.SetFloat("Vertical", moveInput.y);
+        }
+        else
+        {
+            animator.SetFloat("Horizontal", 0f);
+            animator.SetFloat("Vertical", 0f);
+        }
+    
+        animator.SetBool("isMoving", isMoving);
+    }
+    
     private void HandlePurrCharge()
     {
         if (isChargingPurr)
@@ -177,7 +256,6 @@ public class CatController : MonoBehaviour
     {
         if (Time.time < lastPurrTime + purringCooldown)
         {
-            // >> SFX: Reproducir un sonido de "habilidad no disponible" o "error".
             Debug.Log("Maullido en cooldown!");
             return;
         }
@@ -185,7 +263,7 @@ public class CatController : MonoBehaviour
         isChargingPurr = true;
         purrHoldTime = 0f;
         
-        // >> SFX: Iniciar un sonido de carga o ronroneo que aumente de intensidad.
+        // SFX: Iniciar un sonido de carga o ronroneo que aumente de intensidad
         Debug.Log("Cargando maullido...");
         
         if (purrVfxSprite != null)
@@ -201,7 +279,11 @@ public class CatController : MonoBehaviour
 
         isChargingPurr = false;
         
-        // >> SFX: Detener el sonido de carga que se inició en OnPurringPerformed.
+        if (animator != null)
+        {
+            animator.SetTrigger("Meow");
+        }
+        
         EmitPurr();
         
         totalMeowsUsed++;
@@ -224,7 +306,7 @@ public class CatController : MonoBehaviour
     private void DistractNearbyGuards(float range)
     {
         int guardsAlerted = 0;
-        GuardController[] guards = FindObjectsOfType<GuardController>();
+        GuardController[] guards = FindObjectsByType<GuardController>(FindObjectsSortMode.None);
         
         foreach (GuardController guard in guards)
         {
@@ -245,14 +327,14 @@ public class CatController : MonoBehaviour
         }
         else
         {
-            Debug.Log(" Ningún guardia en rango");
+            Debug.Log("Ningún guardia en rango");
         }
     }
     
     private void PlayPurrSound()
     {
-        // >> SFX: Este es el lugar ideal para reproducir el sonido principal del maullido.
-        // La fuerza o el tipo de maullido podría depender de 'currentPurringRange'.
+        // SFX: Este es el lugar ideal para reproducir el sonido principal del maullido
+        // La fuerza o el tipo de maullido podría depender de 'currentPurringRange'
         AudioSource audioSource = GetComponent<AudioSource>();
         if (audioSource != null && audioSource.clip != null)
         {
@@ -279,25 +361,115 @@ public class CatController : MonoBehaviour
 
         purrVfxSprite.gameObject.SetActive(false);
     }
+
+    void OnHairballPerformed(InputAction.CallbackContext context)
+    {
+        if (Time.time < lastHairballTime + hairballCooldown)
+        {
+            Debug.Log("Bolas de pelo en cooldown!");
+            return;
+        }
+        
+        if (activeHairballs >= maxActiveHairballs)
+        {
+            Debug.Log("Demasiadas bolas de pelo activas!");
+            return;
+        }
+        
+        LaunchHairball();
+    }
+
+    private void LaunchHairball()
+    {
+        if (hairballPrefab == null)
+        {
+            Debug.LogError("No hay prefab de bola de pelo asignado!");
+            return;
+        }
+        
+        Vector2 launchDirection = GetLaunchDirection();
+        Vector3 spawnPosition = GetHairballSpawnPosition();
+        
+        GameObject hairballObj = Instantiate(hairballPrefab, spawnPosition, Quaternion.identity);
+        Hairball hairball = hairballObj.GetComponent<Hairball>();
+        
+        if (hairball != null)
+        {
+            hairball.Initialize(launchDirection, hairballSpeed);
+        }
+        else
+        {
+            Debug.LogError("El prefab no tiene el componente Hairball!");
+            Destroy(hairballObj);
+            return;
+        }
+        
+        activeHairballs++;
+        lastHairballTime = Time.time;
+        
+        StartCoroutine(TrackHairball(hairballObj));
+        
+        Debug.Log($"¡Bola de pelo lanzada! ({activeHairballs}/{maxActiveHairballs})");
+    }
+
+    private Vector2 GetLaunchDirection()
+    {
+        if (moveInput.magnitude > 0.1f)
+        {
+            return moveInput.normalized;
+        }
+        
+        float horizontal = animator.GetFloat("Horizontal");
+        float vertical = animator.GetFloat("Vertical");
+        Vector2 lastDirection = new Vector2(horizontal, vertical);
+        
+        if (lastDirection.magnitude > 0.1f)
+        {
+            return lastDirection.normalized;
+        }
+        
+        return Vector2.right;
+    }
+
+    private Vector3 GetHairballSpawnPosition()
+    {
+        if (hairballSpawnPoint != null)
+        {
+            return hairballSpawnPoint.position;
+        }
+        
+        Vector2 launchDirection = GetLaunchDirection();
+        return transform.position + (Vector3)(launchDirection * 0.5f);
+    }
+
+    private IEnumerator TrackHairball(GameObject hairballObj)
+    {
+        while (hairballObj != null)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        activeHairballs = Mathf.Max(0, activeHairballs - 1);
+        Debug.Log($"Bola de pelo destruida. Restantes: {activeHairballs}");
+    }
     
-    // ====== SISTEMA DE CONCENTRACIÓN ======
     void OnConcentrationPerformed(InputAction.CallbackContext context)
     {
-        // >> SFX: Reproducir un sonido para indicar el inicio de la concentración.
+        // SFX: Reproducir un sonido para indicar el inicio de la concentración
         isConcentrating = true;
         Debug.Log("Concentración activada");
     }
     
     void OnConcentrationCanceled(InputAction.CallbackContext context)
     {
-        // >> SFX: Reproducir un sonido para indicar el final de la concentración.
+        // SFX: Reproducir un sonido para indicar el final de la concentración
         isConcentrating = false;
         Debug.Log("Concentración desactivada");
     }
     
     void DetectNearbyEnemies()
     {
-        GuardController[] guards = FindObjectsOfType<GuardController>();
+        GuardController[] guards = FindObjectsByType<GuardController>(FindObjectsSortMode.None);
         
         foreach (GuardController guard in guards)
         {
@@ -331,22 +503,21 @@ public class CatController : MonoBehaviour
                 return Color.red;
             case GuardController.GuardState.Rotating:
                 return Color.cyan;
+            case GuardController.GuardState.Stunned:
+                return Color.magenta;
             default:
                 return Color.gray;
         }
     }
     
-    // ====== DEBUG Y GIZMOS ======
     void OnDrawGizmos()
     {
-        // Mostrar rango del maullido mientras se carga
         if (isChargingPurr)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, currentPurringRange);
         }
 
-        // Mostrar rango de concentración
         if (isConcentrating)
         {
             Gizmos.color = new Color(0, 0.5f, 1f, 0.3f);
@@ -356,7 +527,6 @@ public class CatController : MonoBehaviour
     
     void OnDrawGizmosSelected()
     {
-        // Mostrar rangos mínimo y máximo del maullido
         Gizmos.color = new Color(1f, 1f, 0f, 0.2f);
         Gizmos.DrawWireSphere(transform.position, minPurringRange);
         

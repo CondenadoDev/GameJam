@@ -12,7 +12,8 @@ public class GuardController : MonoBehaviour
         Chasing,
         Investigating,
         Rotating,
-        ReturningToSpawn
+        ReturningToSpawn,
+        Stunned
     }
     
     [Header("Estado Actual (Debug)")]
@@ -64,6 +65,10 @@ public class GuardController : MonoBehaviour
     private Coroutine currentStateCoroutine;
     private bool hasPatrolPoints;
     private bool isDisabled = false;
+    private bool isStunned = false;
+    private float stunEndTime = 0f;
+    private Color originalSpriteColor;
+    private Coroutine stunCoroutine;
     
     public float VisionRange => visionRange;
     public float VisionAngle => visionAngle;
@@ -84,7 +89,7 @@ public class GuardController : MonoBehaviour
         gameManager = GameManager.Instance;
         if (gameManager == null)
         {
-            gameManager = FindObjectOfType<GameManager>();
+            gameManager = FindFirstObjectByType<GameManager>();
         }
         
         spawnPosition = transform.position;
@@ -106,7 +111,10 @@ public class GuardController : MonoBehaviour
         {
             visionCone.Initialize(this, obstacleLayer);
         }
-        
+        if (spriteRenderer != null)
+        {
+            originalSpriteColor = spriteRenderer.color;
+        }
         InitializeState();
     }
     
@@ -125,7 +133,7 @@ public class GuardController : MonoBehaviour
     
     void Update()
     {
-        if (isDisabled) return;
+        if (isDisabled || isStunned) return;
         
         UpdateFacingDirection();
         
@@ -153,6 +161,9 @@ public class GuardController : MonoBehaviour
                 break;
             case GuardState.ReturningToSpawn:
                 UpdateReturningToSpawn();
+                break;
+            case GuardState.Stunned:
+                StartStunned();
                 break;
         }
     }
@@ -465,6 +476,11 @@ public class GuardController : MonoBehaviour
             ReturnToNormalState();
         }
     }
+    private void StartStunned()
+    {
+        navAgent.isStopped = true;
+        navAgent.velocity = Vector3.zero;
+    }
     
     private void ReturnToNormalState()
     {
@@ -482,25 +498,50 @@ public class GuardController : MonoBehaviour
     public void ResetToSpawn()
     {
         isDisabled = false;
+    
+        // Resetear stun
+        if (stunCoroutine != null)
+        {
+            StopCoroutine(stunCoroutine);
+            stunCoroutine = null;
+        }
+        isStunned = false;
+        stunEndTime = 0f;
+    
         StopCurrentStateCoroutine();
-        
+    
         transform.position = spawnPosition;
         transform.rotation = spawnRotation;
         transform.localScale = originalScale;
         navAgent.Warp(spawnPosition);
-        
+    
+        // Restaurar color original
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = originalSpriteColor;
+        }
+    
         currentPatrolIndex = 0;
         lastKnownPlayerPosition = Vector3.zero;
         timeSinceLastSawPlayer = 0f;
         isWaitingAtPoint = false;
         hasReachedDestination = false;
-        
+    
         InitializeState();
     }
     
     public void DisableGuard()
     {
         isDisabled = true;
+    
+        // Detener stun si está activo
+        if (stunCoroutine != null)
+        {
+            StopCoroutine(stunCoroutine);
+            stunCoroutine = null;
+        }
+        isStunned = false;
+    
         StopCurrentStateCoroutine();
         navAgent.isStopped = true;
         navAgent.velocity = Vector3.zero;
@@ -561,6 +602,8 @@ public class GuardController : MonoBehaviour
     
     private void UpdateVisuals()
     {
+        if (isStunned) return; // No cambiar colores si está stuneado
+    
         Color targetColor = patrolColor;
         switch (currentState)
         {
@@ -569,17 +612,22 @@ public class GuardController : MonoBehaviour
             case GuardState.Investigating: targetColor = investigateColor; break;
             case GuardState.Rotating: targetColor = rotateColor; break;
             case GuardState.ReturningToSpawn: targetColor = returnColor; break;
+            case GuardState.Stunned: return; // El color se maneja en StunCoroutine
         }
-        
+    
         if (spriteRenderer != null)
         {
             spriteRenderer.color = targetColor;
+            originalSpriteColor = targetColor;
         }
-        
+    
         if (visionCone != null)
         {
-            visionCone.SetVisible(true);
-            visionCone.UpdateColor(currentState);
+            visionCone.SetVisible(!isStunned);
+            if (!isStunned)
+            {
+                visionCone.UpdateColor(currentState);
+            }
         }
     }
     
@@ -617,4 +665,93 @@ public class GuardController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, arrestDistance);
     }
+    /// <summary>
+    /// Verifica si el guardia está stuneado
+    /// </summary>
+    public bool IsStunned()
+    {
+        return isStunned;
+    }
+    /// <summary>
+/// Aplica stun al guardia por un tiempo determinado
+/// </summary>
+public void ApplyStun(float duration)
+{
+    if (isDisabled || isStunned) return;
+    
+    Debug.Log($"Guardia {name} stuneado por {duration} segundos");
+    
+    // Detener la corrutina anterior si existe
+    if (stunCoroutine != null)
+    {
+        StopCoroutine(stunCoroutine);
+    }
+    
+    stunCoroutine = StartCoroutine(StunCoroutine(duration));
+}
+
+/// <summary>
+/// Corrutina que maneja el estado de stun
+/// </summary>
+private IEnumerator StunCoroutine(float duration)
+{
+    // Iniciar stun
+    isStunned = true;
+    stunEndTime = Time.time + duration;
+    
+    // Cambiar al estado de stun
+    GuardState previousState = currentState;
+    ChangeState(GuardState.Stunned);
+    
+    // Efecto visual de stun
+    if (spriteRenderer != null)
+    {
+        spriteRenderer.color = Color.yellow;
+    }
+    
+    // Detener completamente al guardia
+    navAgent.isStopped = true;
+    navAgent.velocity = Vector3.zero;
+    
+    // Mostrar efectos visuales de stun
+    StartCoroutine(StunVisualEffect());
+    
+    // Esperar la duración del stun
+    yield return new WaitForSeconds(duration);
+    
+    // Terminar stun
+    isStunned = false;
+    
+    // Restaurar color original
+    if (spriteRenderer != null)
+    {
+        spriteRenderer.color = originalSpriteColor;
+    }
+    
+    // Volver al estado normal
+    ReturnToNormalState();
+    
+    Debug.Log($"Guardia {name} se ha recuperado del stun");
+}
+
+/// <summary>
+/// Efecto visual durante el stun
+/// </summary>
+private IEnumerator StunVisualEffect()
+{
+    float blinkInterval = 0.3f;
+    float elapsed = 0f;
+    float stunDuration = stunEndTime - Time.time;
+    
+    while (elapsed < stunDuration && isStunned)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = (spriteRenderer.color == Color.yellow) ? Color.white : Color.yellow;
+        }
+        
+        yield return new WaitForSeconds(blinkInterval);
+        elapsed += blinkInterval;
+    }
+}
 }

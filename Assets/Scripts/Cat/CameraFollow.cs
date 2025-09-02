@@ -36,7 +36,7 @@ public class CameraFollow : MonoBehaviour
         // Si no se asignó un target, buscar uno automáticamente
         if (target == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject player = GameObject.FindWithTag("Player");
             if (player != null)
             {
                 target = player.transform;
