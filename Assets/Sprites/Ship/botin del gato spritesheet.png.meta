@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      botin del gato spritesheet_0: 5414750731436516943
+      botin del gato spritesheet_1: 2390529058489148100
+      botin del gato spritesheet_10: -1708808076120431833
+      botin del gato spritesheet_11: -2616550740617626776
+      botin del gato spritesheet_2: 2502790997873320901
+      botin del gato spritesheet_3: 8740863305383736440
+      botin del gato spritesheet_4: 5923669904209363762
+      botin del gato spritesheet_5: 8759979684958746640
+      botin del gato spritesheet_6: -4410303540850224683
+      botin del gato spritesheet_7: -8730163199390774269
+      botin del gato spritesheet_8: 635515271819146329
+      botin del gato spritesheet_9: 5739874757939441842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

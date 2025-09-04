@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      islotes y rocones6_0: -3862895064822436440
+      islotes y rocones6_1: -3544756392933568219
+      islotes y rocones6_2: -1601011194385185808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

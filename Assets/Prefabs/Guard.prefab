@@ -103,7 +103,6 @@ MonoBehaviour:
   patrolColor: {r: 0, g: 1, b: 0, a: 0.15}
   investigateColor: {r: 1, g: 1, b: 0, a: 0.3}
   chaseColor: {r: 1, g: 0, b: 0, a: 0.4}
-  rotateColor: {r: 0, g: 1, b: 1, a: 0.2}
   meshResolution: 50
   edgeDistanceThreshold: 0.1
   edgeResolveIterations: 5
@@ -120,8 +119,9 @@ GameObject:
   - component: {fileID: 5101957250812265723}
   - component: {fileID: 6839277659149380457}
   - component: {fileID: 3017646219424698340}
-  - component: {fileID: 545679215337165218}
   - component: {fileID: 4619048759371758743}
+  - component: {fileID: 1795278094113810689}
+  - component: {fileID: 998953702331882634}
   m_Layer: 9
   m_Name: Guard
   m_TagString: Guard
@@ -189,8 +189,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9137255, g: 0.27058825, b: 0.3764706, a: 1}
+  m_Sprite: {fileID: 2045890640815861322, guid: 02ee2e7c2b9df9349b1cfcb09907a9c2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -247,27 +247,83 @@ MonoBehaviour:
   - {fileID: 0}
   patrolSpeed: 2
   waitTimeAtPoint: 2
-  rotationSpeed: 90
   destinationThreshold: 1
-  visionRange: 15
+  visionRange: 10
   visionAngle: 90
+  visionTurnSpeed: 10
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  chaseSpeed: 3
+  chaseSpeed: 4
   arrestDistance: 1.5
-  maxChaseTime: 3
+  maxChaseTime: 12
   investigateSpeed: 3
   investigateTime: 5
+  memoryDuration: 30
+  searchRadius: 5
+  flankingDistance: 4
+  predictionTime: 2
+  losePursuitDistance: 15
+  maxSearchPoints: 8
+  ambushWaitTime: 5
+  patrolAcceleration: 8
+  chaseAcceleration: 20
+  angularSpeed: 720
   patrolColor: {r: 0, g: 1, b: 0, a: 1}
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
   investigateColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rotateColor: {r: 0, g: 1, b: 1, a: 1}
---- !u!61 &545679215337165218
-BoxCollider2D:
+  returnColor: {r: 0, g: 0, b: 1, a: 1}
+  searchColor: {r: 1, g: 0.5, b: 0, a: 1}
+  flankColor: {r: 1, g: 0, b: 1, a: 1}
+--- !u!195 &4619048759371758743
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993084200017774933}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!95 &1795278094113810689
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993084200017774933}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b10e7ed86a86e8a4990082df25be8004, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &998953702331882634
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -300,37 +356,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!195 &4619048759371758743
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8993084200017774933}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Offset: {x: -0.0030854344, y: 0}
+  m_Size: {x: 0.7826668, y: 2}
+  m_Direction: 0

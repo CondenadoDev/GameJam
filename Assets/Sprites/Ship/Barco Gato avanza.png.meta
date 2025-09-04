@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Barco Gato avanza_0: 1217512612446406071
+      Barco Gato avanza_1: 1641955477761215882
+      Barco Gato avanza_2: -6914152695698030161
+      Barco Gato avanza_3: -1656871554116013181
+      Barco Gato avanza_4: -8817343543748005183
+      Barco Gato avanza_5: -3929876640991874016
+      Barco Gato avanza_6: -8578874605597002727
+      Barco Gato avanza_7: 4543178964177506757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
