@@ -1520,6 +1520,7 @@ MonoBehaviour:
   exitButton: {fileID: 752862325}
   backFromCreditsButton: {fileID: 1016553201}
   creditsText: {fileID: 1498845417}
+  cinematicSceneName: CinematicScene
   gameSceneName: GameMap1
   transitionDuration: 1
   fadeImage: {fileID: 145490184}

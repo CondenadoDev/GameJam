@@ -856,6 +856,19 @@ public class GuardController : MonoBehaviour
         ChangeState(GuardState.Investigating);
     }
     
+    public void OnCameraAlert(Vector3 playerLastPosition, Vector3 cameraPosition)
+    {
+        if (currentState == GuardState.Chasing || isDisabled || isStunned) return;
+    
+        Debug.Log($"Guardia {name} alertado por cámara en {cameraPosition} - Jugador visto en {playerLastPosition}");
+    
+        // FMOD: Reproducir sonido de "¡Alerta de cámara!" o radio crackling
+    
+        lastKnownPlayerPosition = playerLastPosition;
+    
+        ChangeState(GuardState.Investigating);
+    }
+    
     private void UpdateVisuals()
     {
         if (isStunned) return;

@@ -1,5 +1,4 @@
 using UnityEngine;
-// AÑADIDO: Necesitamos acceder a los componentes de URP
 using UnityEngine.U2D;
 
 public class CameraFollow : MonoBehaviour
@@ -27,18 +26,14 @@ public class CameraFollow : MonoBehaviour
     [Range(0f, 0.5f)]
     public float edgeThreshold = 0.1f;
     
-    // MODIFICADO: La variable 'velocity' ya no es necesaria porque eliminamos SmoothDamp.
-    // private Vector3 velocity = Vector3.zero;
     private Vector2 peekOffset = Vector2.zero;
     private Vector2 peekVelocity = Vector2.zero;
 
-    // --- NUEVAS VARIABLES ---
     private PixelPerfectCamera pixelPerfectCamera;
     private float currentPixelsPerUnit;
 
     void Start()
     {
-        // Si no se asignó un target, buscar uno automáticamente
         if (target == null)
         {
             GameObject player = GameObject.FindWithTag("Player");
@@ -48,7 +43,6 @@ public class CameraFollow : MonoBehaviour
             }
         }
 
-        // AÑADIDO: Obtenemos el componente PixelPerfectCamera para saber el tamaño de la cuadrícula de píxeles.
         pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
         if (pixelPerfectCamera != null)
         {
@@ -75,14 +69,9 @@ public class CameraFollow : MonoBehaviour
             targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
         }
         
-        // --- LÍNEA CLAVE MODIFICADA ---
-        // Se ha eliminado Vector3.SmoothDamp para prevenir la vibración (judder).
-        // Ahora la cámara sigue al objetivo de forma directa y estable, ajustándose a la cuadrícula de píxeles.
         transform.position = SnapToPixelGrid(targetPosition);
     }
 
-    // --- NUEVA FUNCIÓN ---
-    // Esta función toma una posición y la redondea a la coordenada de píxel más cercana.
     private Vector3 SnapToPixelGrid(Vector3 position)
     {
         if (currentPixelsPerUnit <= 0)

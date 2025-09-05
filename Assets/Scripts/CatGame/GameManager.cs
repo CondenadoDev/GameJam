@@ -6,8 +6,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     [Header("Game Settings")]
-    [SerializeField] private int maxLives = 7;
-    [SerializeField] private int totalObjectives = 3;
+    [SerializeField] private int maxLives = 5;
+    [SerializeField] private int totalObjectives = 4;
     [SerializeField] private Vector3 catSpawnPoint = new Vector3(-8, 0, 0);
     
     [Header("Current Game State")]
@@ -307,5 +307,21 @@ public class GameManager : MonoBehaviour
     public int GetObjectivesCollected()
     {
         return objectivesCollected;
+    }
+    public void OnSpecificObjectiveCollected(int objectiveIndex)
+    {
+        if (gameOver) return;
+    
+        objectivesCollected++;
+    
+        HUDManager.Instance?.UpdateSpecificObjective(objectiveIndex);
+    
+        OnObjectivesChanged?.Invoke(objectivesCollected, totalObjectives);
+    
+        if (objectivesCollected >= totalObjectives)
+        {
+            missionComplete = true;
+            // FMOD: Reproducir sonido de misión completada
+        }
     }
 }

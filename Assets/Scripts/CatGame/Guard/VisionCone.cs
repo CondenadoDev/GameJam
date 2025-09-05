@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Sistema de cono de visión adaptativo que se ajusta a obstáculos.
-/// Genera un mesh dinámico que representa el área visible del guardia.
-/// </summary>
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 public class VisionCone : MonoBehaviour
@@ -13,13 +9,21 @@ public class VisionCone : MonoBehaviour
     [Tooltip("Material para el cono de visión (debe soportar transparencia)")]
     [SerializeField] private Material visionConeMaterial;
     
-    [Header("Colores Simplificados")]
+    [Header("Colores para Guardias")]
     [Tooltip("Color cuando está patrullando o pasivo")]
-    [SerializeField] private Color passiveColor = new Color(1f, 1f, 1f, 0.25f); // Blanco
+    [SerializeField] private Color guardPassiveColor = new Color(1f, 1f, 1f, 0.25f);
     [Tooltip("Color cuando está investigando o alerta")]
-    [SerializeField] private Color alertColor = new Color(1f, 0.5f, 0f, 0.35f); // Naranjo
+    [SerializeField] private Color guardAlertColor = new Color(1f, 0.5f, 0f, 0.35f);
     [Tooltip("Color cuando está atacando o persiguiendo")]
-    [SerializeField] private Color aggressiveColor = new Color(1f, 0f, 0f, 0.45f); // Rojo
+    [SerializeField] private Color guardAggressiveColor = new Color(1f, 0f, 0f, 0.45f);
+    
+    [Header("Colores para Cámaras")]
+    [Tooltip("Color normal de cámara")]
+    [SerializeField] private Color cameraNormalColor = new Color(0f, 1f, 0f, 0.3f); 
+    [Tooltip("Color de cámara detectando")]
+    [SerializeField] private Color cameraDetectionColor = new Color(1f, 0.5f, 0f, 0.4f); 
+    [Tooltip("Color de cámara en alerta")]
+    [SerializeField] private Color cameraAlertColor = new Color(1f, 0f, 0f, 0.5f); 
     
     // ====== CONFIGURACIÓN TÉCNICA ======
     [Header("Configuración Técnica")]
@@ -37,23 +41,37 @@ public class VisionCone : MonoBehaviour
     private MeshRenderer meshRenderer;
     private Mesh visionMesh;
     private GuardController guardController;
+    private SecurityCameraController cameraController;
     private LayerMask obstacleLayer;
     
     private bool isInitialized = false;
     private float currentVisionRange;
     private float currentVisionAngle;
+    private bool isCamera = false;
     
-    // ====== INICIALIZACIÓN ======
     public void Initialize(GuardController controller, LayerMask obstacles)
     {
         guardController = controller;
         obstacleLayer = obstacles;
-        
+        isCamera = false;
+        CommonInitialize();
+    }
+    
+    public void Initialize(SecurityCameraController controller, LayerMask obstacles)
+    {
+        cameraController = controller;
+        obstacleLayer = obstacles;
+        isCamera = true;
+        CommonInitialize();
+    }
+    
+    private void CommonInitialize()
+    {
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
         
         visionMesh = new Mesh();
-        visionMesh.name = "Vision_Cone_Mesh";
+        visionMesh.name = isCamera ? "Camera_Vision_Cone_Mesh" : "Guard_Vision_Cone_Mesh";
         meshFilter.mesh = visionMesh;
         
         if (visionConeMaterial == null)
@@ -77,14 +95,23 @@ public class VisionCone : MonoBehaviour
         if (!isInitialized)
         {
             guardController = GetComponentInParent<GuardController>();
+            cameraController = GetComponentInParent<SecurityCameraController>();
+            
             if (guardController != null)
             {
+                isCamera = false;
                 obstacleLayer = LayerMask.GetMask("Obstacles", "Walls");
                 Initialize(guardController, obstacleLayer);
             }
+            else if (cameraController != null)
+            {
+                isCamera = true;
+                obstacleLayer = LayerMask.GetMask("Obstacles", "Walls");
+                Initialize(cameraController, obstacleLayer);
+            }
             else
             {
-                Debug.LogError("No se encontró GuardController en el padre!");
+                Debug.LogError("No se encontró GuardController ni SecurityCameraController en el padre!");
                 enabled = false;
             }
         }
@@ -92,17 +119,28 @@ public class VisionCone : MonoBehaviour
     
     void LateUpdate()
     {
-        if (meshRenderer != null && meshRenderer.enabled && guardController != null)
+        if (meshRenderer != null && meshRenderer.enabled && isInitialized)
         {
             DrawFieldOfView();
         }
     }
     
-    // ====== GENERACIÓN DEL MESH ======
     private void DrawFieldOfView()
     {
-        currentVisionRange = guardController.VisionRange;
-        currentVisionAngle = guardController.VisionAngle;
+        if (isCamera && cameraController != null)
+        {
+            currentVisionRange = cameraController.VisionRange;
+            currentVisionAngle = cameraController.VisionAngle;
+        }
+        else if (!isCamera && guardController != null)
+        {
+            currentVisionRange = guardController.VisionRange;
+            currentVisionAngle = guardController.VisionAngle;
+        }
+        else
+        {
+            return; 
+        }
         
         int stepCount = Mathf.RoundToInt(currentVisionAngle * meshResolution / 360f);
         float stepAngleSize = currentVisionAngle / stepCount;
@@ -110,8 +148,17 @@ public class VisionCone : MonoBehaviour
         var viewPoints = new System.Collections.Generic.List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
         
-        Vector3 guardDirection = guardController.GetFacingDirection();
-        float baseAngle = Mathf.Atan2(guardDirection.y, guardDirection.x) * Mathf.Rad2Deg;
+        Vector3 facingDirection;
+        if (isCamera)
+        {
+            facingDirection = cameraController.GetForwardDirection();
+        }
+        else
+        {
+            facingDirection = guardController.GetFacingDirection();
+        }
+        
+        float baseAngle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
         
         for (int i = 0; i <= stepCount; i++)
         {
@@ -157,11 +204,11 @@ public class VisionCone : MonoBehaviour
         visionMesh.RecalculateNormals();
     }
     
-    // ====== SISTEMA DE RAYCASTING ======
     private ViewCastInfo ViewCast(float globalAngle)
     {
         Vector3 dir = DirFromAngle(globalAngle, true);
-        RaycastHit2D hit = Physics2D.Raycast(transform.parent.position, dir, currentVisionRange, obstacleLayer);
+        Vector3 startPosition = transform.parent.position;
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, dir, currentVisionRange, obstacleLayer);
         
         if (hit.collider != null)
         {
@@ -169,7 +216,7 @@ public class VisionCone : MonoBehaviour
         }
         else
         {
-            Vector3 endPoint = transform.parent.position + dir * currentVisionRange;
+            Vector3 endPoint = startPosition + dir * currentVisionRange;
             return new ViewCastInfo(false, endPoint, currentVisionRange, globalAngle);
         }
     }
@@ -211,7 +258,6 @@ public class VisionCone : MonoBehaviour
         return new Vector3(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0);
     }
     
-    // ====== CONTROL VISUAL ======
     public void SetVisible(bool visible)
     {
         if (meshRenderer != null)
@@ -220,10 +266,9 @@ public class VisionCone : MonoBehaviour
         }
     }
     
-    // ====== FUNCIÓN SIMPLIFICADA DE COLORES ======
     public void UpdateColor(GuardController.GuardState state)
     {
-        if (meshRenderer == null || meshRenderer.material == null) return;
+        if (meshRenderer == null || meshRenderer.material == null || isCamera) return;
         
         Color targetColor;
         
@@ -231,27 +276,58 @@ public class VisionCone : MonoBehaviour
         {
             case GuardController.GuardState.Chasing:
             case GuardController.GuardState.Flanking:
-                targetColor = aggressiveColor; // ROJO - Estados agresivos
+                targetColor = guardAggressiveColor; 
                 break;
                 
             case GuardController.GuardState.Investigating:
             case GuardController.GuardState.Searching:
             case GuardController.GuardState.Ambushing:
-                targetColor = alertColor; // NARANJO - Estados de alerta
+                targetColor = guardAlertColor; 
                 break;
                 
             case GuardController.GuardState.Patrolling:
             case GuardController.GuardState.ReturningToSpawn:
             case GuardController.GuardState.Stunned:
             default:
-                targetColor = passiveColor; // BLANCO - Estados pasivos
+                targetColor = guardPassiveColor; 
                 break;
         }
         
         meshRenderer.material.color = targetColor;
     }
     
-    // ====== CONFIGURACIÓN DE MATERIAL ======
+    public void UpdateCameraColor(Color cameraColor)
+    {
+        if (meshRenderer == null || meshRenderer.material == null || !isCamera) return;
+        
+        Color targetColor;
+        
+        if (IsColorSimilar(cameraColor, Color.green))
+        {
+            targetColor = cameraNormalColor;
+        }
+        else if (IsColorSimilar(cameraColor, new Color(1f, 0.5f, 0f))) 
+        {
+            targetColor = cameraDetectionColor;
+        }
+        else if (IsColorSimilar(cameraColor, Color.red))
+        {
+            targetColor = cameraAlertColor;
+        }
+        else
+        {
+            targetColor = new Color(cameraColor.r, cameraColor.g, cameraColor.b, 0.3f);
+        }
+        
+        meshRenderer.material.color = targetColor;
+    }
+    
+    private bool IsColorSimilar(Color color1, Color color2, float threshold = 0.1f)
+    {
+        return Vector3.Distance(new Vector3(color1.r, color1.g, color1.b), 
+                               new Vector3(color2.r, color2.g, color2.b)) < threshold;
+    }
+    
     private void ConfigureMaterialForTransparency()
     {
         if (visionConeMaterial == null) return;
@@ -270,7 +346,6 @@ public class VisionCone : MonoBehaviour
         visionConeMaterial.color = currentColor;
     }
     
-    // ====== ESTRUCTURAS DE DATOS ======
     private struct ViewCastInfo
     {
         public bool hit;
@@ -299,18 +374,30 @@ public class VisionCone : MonoBehaviour
         }
     }
     
-    // ====== DEBUG ======
     void OnDrawGizmosSelected()
     {
-        if (guardController == null) return;
+        if (!isInitialized) return;
         
-        Vector3 guardDirection = guardController.GetFacingDirection();
-        float baseAngle = Mathf.Atan2(guardDirection.y, guardDirection.x) * Mathf.Rad2Deg;
-        Vector3 leftBoundary = DirFromAngle(baseAngle - guardController.VisionAngle / 2, true);
-        Vector3 rightBoundary = DirFromAngle(baseAngle + guardController.VisionAngle / 2, true);
+        Vector3 facingDirection;
+        if (isCamera && cameraController != null)
+        {
+            facingDirection = cameraController.GetForwardDirection();
+        }
+        else if (!isCamera && guardController != null)
+        {
+            facingDirection = guardController.GetFacingDirection();
+        }
+        else
+        {
+            return;
+        }
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.parent.position, leftBoundary * guardController.VisionRange);
-        Gizmos.DrawRay(transform.parent.position, rightBoundary * guardController.VisionRange);
+        float baseAngle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
+        Vector3 leftBoundary = DirFromAngle(baseAngle - currentVisionAngle / 2, true);
+        Vector3 rightBoundary = DirFromAngle(baseAngle + currentVisionAngle / 2, true);
+        
+        Gizmos.color = isCamera ? Color.green : Color.red;
+        Gizmos.DrawRay(transform.parent.position, leftBoundary * currentVisionRange);
+        Gizmos.DrawRay(transform.parent.position, rightBoundary * currentVisionRange);
     }
 }

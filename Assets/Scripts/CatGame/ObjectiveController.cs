@@ -5,6 +5,7 @@ public class ObjectiveController : MonoBehaviour
 {
     [Header("Objective Settings")]
     [SerializeField] private string objectiveName = "Tesoro Nacional";
+    [SerializeField] private int objectiveIndex = 0; // 0=Acta, 1=Copihue, 2=Gaviota, 3=Moai
     [SerializeField] private bool isCollected = false;
     [SerializeField] private float collectionRange = 1f;
     
@@ -14,6 +15,10 @@ public class ObjectiveController : MonoBehaviour
     [SerializeField] private Color originalColor = Color.yellow;
     [SerializeField] private Color glowColor = Color.white;
     [SerializeField] private GameObject collectionEffect;
+    
+    [Header("Collection Animation")]
+    [SerializeField] private float collectionAnimationDuration = 1.5f;
+    [SerializeField] private float storeAnimationDuration = 1.0f;
     
     private SpriteRenderer spriteRenderer;
     private Collider2D objectiveCollider;
@@ -40,7 +45,7 @@ public class ObjectiveController : MonoBehaviour
         isCollected = false;
         gameObject.SetActive(true);
         
-        Debug.Log("Objetivo '" + objectiveName + "' iniciado");
+        Debug.Log("Objetivo '" + objectiveName + "' iniciado - Index: " + objectiveIndex);
     }
     
     void FindPlayer()
@@ -64,7 +69,7 @@ public class ObjectiveController : MonoBehaviour
     {
         if (!isGlowing) return;
         
-        glowTimer += Time.deltaTime * glowSpeed;
+        glowTimer += Time.unscaledDeltaTime * glowSpeed;
         
         float glowFactor = (Mathf.Sin(glowTimer) + 1f) * 0.5f;
         Color currentColor = Color.Lerp(originalColor, glowColor, glowFactor * glowIntensity);
@@ -92,18 +97,91 @@ public class ObjectiveController : MonoBehaviour
         
         isCollected = true;
         
-        Debug.Log("Objetivo '" + objectiveName + "' recolectado");
+        Debug.Log("Objetivo '" + objectiveName + "' recolectado - Index: " + objectiveIndex + " - Iniciando secuencia animada");
         
+        StartCoroutine(CollectionAnimationSequence());
+    }
+    
+    IEnumerator CollectionAnimationSequence()
+    {
+        Time.timeScale = 0f;
+        CatController catController = playerTransform.GetComponent<CatController>();
+        Animator playerAnimator = null;
+        if (catController != null)
+        {
+            catController.enabled = false;
+            playerAnimator = catController.GetComponent<Animator>();
+        }
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("CollectItem");
+        }
+        PlayCollectionEffects();
+
+        StartCoroutine(StoreItemAnimation());
+
+        yield return new WaitForSecondsRealtime(collectionAnimationDuration);
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("StoreItem");
+        }
+
+        yield return new WaitForSecondsRealtime(storeAnimationDuration);
+
         GameManager gameManager = GameManager.Instance;
         if (gameManager != null)
         {
-            gameManager.OnObjectiveCollected();
+            gameManager.OnSpecificObjectiveCollected(objectiveIndex);
+        }
+        Time.timeScale = 1f;
+        if (catController != null)
+        {
+            catController.enabled = true;
+        }
+        gameObject.SetActive(false);
+
+        Debug.Log("Objetivo '" + objectiveName + "' recolección completa - Gameplay reanudado");
+    }
+    
+    IEnumerator StoreItemAnimation()
+    {
+        isGlowing = false;
+        
+        Vector3 startScale = transform.localScale;
+        Vector3 startPosition = transform.position;
+        
+        Vector3 targetPosition = GetUIIconPosition();
+        if (targetPosition == Vector3.zero)
+        {
+            targetPosition = playerTransform.position + Vector3.up * 2f;
         }
         
-        // FMOD: Reproducir sonido de recolección de objetivo
+        Color startColor = spriteRenderer.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
         
-        PlayCollectionEffects();
-        StartCoroutine(CollectionSequence());
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < 0.8f)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            float progress = elapsedTime / 0.8f;
+            
+            transform.position = Vector3.Lerp(startPosition, targetPosition, progress);
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, progress);
+            spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
+            
+            yield return null;
+        }
+    }
+    
+    Vector3 GetUIIconPosition()
+    {
+        HUDManager hudManager = HUDManager.Instance;
+        if (hudManager == null) return Vector3.zero;
+        
+        return hudManager.GetObjectiveIconWorldPosition(objectiveIndex);
     }
     
     void PlayCollectionEffects()
@@ -115,35 +193,9 @@ public class ObjectiveController : MonoBehaviour
         }
     }
     
-    IEnumerator CollectionSequence()
-    {
-        isGlowing = false;
-        
-        float animationDuration = 0.5f;
-        float elapsedTime = 0f;
-        
-        Vector3 startScale = transform.localScale;
-        Color startColor = spriteRenderer.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-        
-        while (elapsedTime < animationDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float progress = elapsedTime / animationDuration;
-            
-            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, progress);
-            spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
-            
-            yield return null;
-        }
-        
-        gameObject.SetActive(false);
-        
-        Debug.Log("Objetivo '" + objectiveName + "' recolección completa");
-    }
-    
     public bool IsCollected() => isCollected;
     public string GetObjectiveName() => objectiveName;
+    public int GetObjectiveIndex() => objectiveIndex;
     
     public void ResetObjective()
     {

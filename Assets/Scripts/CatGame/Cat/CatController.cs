@@ -259,19 +259,21 @@ public class CatController : MonoBehaviour
         if (!isChargingPurr) return;
 
         isChargingPurr = false;
-        
+    
         // FMOD: Detener sonido de carga y reproducir maullido según la potencia
-        
+    
         if (animator != null)
         {
             animator.SetTrigger("Meow");
         }
-        
+    
         EmitPurr();
-        
+    
+        HUDManager.Instance?.StartPurringCooldown();
+    
         totalMeowsUsed++;
         lastPurrTime = Time.time;
-        
+    
         if (purrVfxSprite != null)
         {
             StartCoroutine(FadeOutPurrVfx());
