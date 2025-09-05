@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2036750939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1055935499
 BoxCollider2D:
@@ -220,7 +220,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.002445668, y: 0.0048913658}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -230,7 +230,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.31031406, y: 0.6152107}
   m_EdgeRadius: 0
 --- !u!50 &1055935500
 Rigidbody2D:
@@ -388,6 +388,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  mainCamera: {fileID: 0}
   moveInput: {x: 0, y: 0}
   currentSpeed: 0
   health: 0
@@ -570,6 +571,7 @@ Transform:
   m_Children:
   - {fileID: 1095745368}
   - {fileID: 736737602}
+  - {fileID: 1055935498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2036750940
@@ -584,30 +586,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbad24c9f1a2e6d4d9758f1eacb424d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawnSea: 0
-  seaSpeed: 0
+  canPlay: 1
+  seaSpeed: 5
   elapsedSeaSpawnTime: 0
-  seaKillPosition: 0
-  timeToSpawnRocks: 0
+  seaKillPosition: -80
+  timeToSpawnRocks: 1
   elapsedRocksSpawnTime: 0
-  xOffsetSpawnRocks: 0
+  xOffsetSpawnRocks: 6
   currentShipCount: 0
-  maxShipCount: 0
+  maxShipCount: 1
+  playerShip: {fileID: 1055935503}
   shipCount: []
-  seaList: []
   spawnPoint: {fileID: 736737601}
   sea: {fileID: 1095745367}
   enemyShipReference: {fileID: 4738576785009972820, guid: 741fe00f94315d44785fa8833d05e603, type: 3}
   seaObstacle: {fileID: 2800860600851070844, guid: ba3bb54a32022564b934d0d74ebd2bb0, type: 3}
   goal: {fileID: 3483650710474300153, guid: 0927083a169866841af4d597b795fc61, type: 3}
+  seaList: []
   seaObstaclesList:
-  - {fileID: 7521039744149432028, guid: 28e30a3b3357cca4c94f724055e17916, type: 3}
-  - {fileID: 3447949402418852397, guid: 722ded6806679484d8604d53a877bef3, type: 3}
-  - {fileID: 2179414670182561792, guid: 6b40f15a193bbc64996204b1bc48f3a9, type: 3}
-  - {fileID: 7613326010631712073, guid: deaaf012bd6199b409c39696217e7988, type: 3}
-  - {fileID: 8602614750582262791, guid: a2b36e50c04d5234a8b0d01e90fde0f9, type: 3}
-  - {fileID: 3984697279134164952, guid: c86e55fd48a9f3249bf0156eaf495b68, type: 3}
-  - {fileID: 8992671308533742452, guid: 295027b230393f84dbdbbceb0dfde9a4, type: 3}
+  - {fileID: 3854029054731612422, guid: 28e30a3b3357cca4c94f724055e17916, type: 3}
+  - {fileID: 6335525108209199794, guid: 722ded6806679484d8604d53a877bef3, type: 3}
+  - {fileID: 727679492033075608, guid: 6b40f15a193bbc64996204b1bc48f3a9, type: 3}
+  - {fileID: -32509946774642800, guid: deaaf012bd6199b409c39696217e7988, type: 3}
+  - {fileID: 6769976691581113229, guid: a2b36e50c04d5234a8b0d01e90fde0f9, type: 3}
+  - {fileID: 6531678959999303457, guid: c86e55fd48a9f3249bf0156eaf495b68, type: 3}
+  - {fileID: -2556982883214856223, guid: 295027b230393f84dbdbbceb0dfde9a4, type: 3}
 --- !u!1001 &4039349157870799966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,5 +677,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1100347568}
-  - {fileID: 1055935498}
   - {fileID: 2036750939}

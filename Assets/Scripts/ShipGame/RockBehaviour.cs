@@ -11,9 +11,13 @@ public class RockBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-       this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - Time.deltaTime * 5, -1);
+       this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - Time.deltaTime * speed, -1);
     }
 
+    public void SetSpped(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);

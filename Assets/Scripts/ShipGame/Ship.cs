@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour
     [SerializeField] private BoxCollider2D bc;
     [SerializeField] private PlayerInput pI;
     [SerializeField] private InputAction move;
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private float currentSpeed;
     [SerializeField] private int health;
@@ -82,6 +83,11 @@ public class Ship : MonoBehaviour
         return health;
     }
 
+
+    public void SetSpeed(int newSpeed)
+    {
+        currentSpeed = newSpeed;
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<RockBehaviour>() != null)
@@ -93,6 +99,7 @@ public class Ship : MonoBehaviour
         if(collision.gameObject.GetComponent<Goal>())
         {
             currentSpeed = 0;
+            ShipLevelManager.Instance.ResetSpeeds(0);
         }
     }
 }
