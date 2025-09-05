@@ -4,25 +4,35 @@ using UnityEngine;
 public class ShipLevelManager : MonoBehaviour
 {
     [SerializeField] float timeToSpawnSea;
+    [SerializeField] float seaSpeed;
     [SerializeField] float elapsedSeaSpawnTime;
     [SerializeField] float timeToSpawnRocks;
     [SerializeField] float elapsedRocksSpawnTime;
     [SerializeField] float xOffsetSpawnRocks;
+    [SerializeField] float seaKillPosition;
+    [SerializeField] float currentShipCount;
+    [SerializeField] float maxShipCount;
     [SerializeField] EnemyShip[] shipCount;
     [SerializeField] List<GameObject> seaList;
     [SerializeField] GameObject sea;
     [SerializeField] GameObject spawnPoint;
     [SerializeField] GameObject seaObstacle;
     [SerializeField] GameObject enemyShipReference;
-    [SerializeField] List<Sprite> seaObstaclesList;
+    [SerializeField] List<GameObject> seaObstaclesList;
 
 
 
     private void Start()
     {
+        seaSpeed = 5;
         elapsedSeaSpawnTime = 0;
-        timeToSpawnRocks = 3;
-        xOffsetSpawnRocks = 8;
+        seaKillPosition = -80;
+
+        timeToSpawnRocks = 1;
+        xOffsetSpawnRocks = 6;
+
+        currentShipCount = 0;
+        maxShipCount = 3;
         seaList.Add(sea);
     }
 
@@ -34,18 +44,25 @@ public class ShipLevelManager : MonoBehaviour
 
         if(shipCount.Length <= 0)
         {
-            Instantiate(enemyShipReference, new Vector3(0, -6, -1), Quaternion.identity);
+            if (currentShipCount < maxShipCount)
+            {
+                Instantiate(enemyShipReference, new Vector3(0, -10, -1), Quaternion.identity);
+                currentShipCount++;
+            }
+            else
+                print("ganaste!");
         }
 
         for (int i = 0; i < seaList.Count; i++)
         {
             seaList[i].transform.position = new Vector3(seaList[i].transform.position.x, seaList[i].transform.position.y - 
-                (Time.deltaTime * 5), seaList[i].transform.position.z);
+                (Time.deltaTime * seaSpeed), seaList[i].transform.position.z);
 
-            if(seaList[i].transform.position.y <= -45)
+            if(seaList[i].transform.position.y <= seaKillPosition)
             {
                 var s = seaList[i];
                 seaList.Remove(seaList[i]);
+                sea = seaList[0];
                 Destroy(s.gameObject);
             }
 
@@ -53,24 +70,20 @@ public class ShipLevelManager : MonoBehaviour
 
         if (elapsedSeaSpawnTime > 10)
         {
+            
             var newSea = Instantiate(sea, spawnPoint.transform.position, Quaternion.identity);
             seaList.Add(newSea);
             elapsedSeaSpawnTime = 0;
         }
 
+
+        //spawn obstacles
         if (elapsedRocksSpawnTime > timeToSpawnRocks)
         {
-            var newRock = Instantiate(seaObstacle, new Vector3(spawnPoint.transform.position.x + (Random.Range(-xOffsetSpawnRocks,xOffsetSpawnRocks)), 
+            var newRock = Instantiate(seaObstaclesList[Random.Range(0, seaObstaclesList.Count)], new Vector3(spawnPoint.transform.position.x + (Random.Range(-xOffsetSpawnRocks,xOffsetSpawnRocks)), 
                 spawnPoint.transform.position.y, -1),Quaternion.identity);
 
-
-            newRock.gameObject.transform.SetParent(seaList[0].gameObject.transform);
-
-            var sprite = newRock.GetComponent<SpriteRenderer>();
-
-            sprite.sprite = seaObstaclesList[Random.Range(0, seaObstaclesList.Count)];
-
-
+            //newRock.gameObject.transform.SetParent(seaList[0].gameObject.transform);
             elapsedRocksSpawnTime = 0;
         }
 
