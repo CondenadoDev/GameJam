@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CatController : MonoBehaviour
 {
-    [Header("Configuración de Movimiento")]
+    [Header("ConfiguraciÃ³n de Movimiento")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float walkSpeedMultiplier = 0.5f;
 
@@ -14,10 +14,6 @@ public class CatController : MonoBehaviour
     [SerializeField] private float maxPurringRange = 10f;
     [SerializeField] private float purrChargeTime = 1.5f;
     [SerializeField] private float purringCooldown = 3f;
-
-    [Header("Habilidad de Concentración")]
-    [SerializeField] private float concentrationRange = 15f;
-    [SerializeField] private bool showEnemyIndicators = true;
 
     [Header("Habilidad de Bolas de Pelo")]
     [SerializeField] private GameObject hairballPrefab;
@@ -38,11 +34,9 @@ public class CatController : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction purringAction;
-    private InputAction concentrationAction;
     private InputAction hairballAction;
     
     private bool isChargingPurr = false;
-    private bool isConcentrating = false;
     private bool isWalking = false;
     
     private float purrHoldTime = 0f;
@@ -69,41 +63,31 @@ public class CatController : MonoBehaviour
         try
         {
             moveAction = playerInput.actions["Move"];
-            Debug.Log("Acción 'Move' encontrada");
+            Debug.Log("AcciÃ³n 'Move' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogError("No se encontró la acción 'Move'");
+            Debug.LogError("No se encontrÃ³ la acciÃ³n 'Move'");
         }
         
         try
         {
             purringAction = playerInput.actions["Purring"];
-            Debug.Log("Acción 'Purring' encontrada");
+            Debug.Log("AcciÃ³n 'Purring' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogError("No se encontró la acción 'Purring'");
-        }
-        
-        try
-        {
-            concentrationAction = playerInput.actions["Concentration"];
-            Debug.Log("Acción 'Concentration' encontrada");
-        }
-        catch (System.Exception)
-        {
-            Debug.LogError("No se encontró la acción 'Concentration'");
+            Debug.LogError("No se encontrÃ³ la acciÃ³n 'Purring'");
         }
         
         try
         {
             hairballAction = playerInput.actions["Hairball"];
-            Debug.Log("Acción 'Hairball' encontrada");
+            Debug.Log("AcciÃ³n 'Hairball' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogWarning("No se encontró la acción 'Hairball' - Las bolas de pelo estarán deshabilitadas");
+            Debug.LogWarning("No se encontrÃ³ la acciÃ³n 'Hairball' - Las bolas de pelo estarÃ¡n deshabilitadas");
             hairballAction = null;
         }
 
@@ -125,12 +109,6 @@ public class CatController : MonoBehaviour
             purringAction.canceled += OnPurringCanceled;
         }
     
-        if (concentrationAction != null)
-        {
-            concentrationAction.performed += OnConcentrationPerformed;
-            concentrationAction.canceled += OnConcentrationCanceled;
-        }
-    
         if (hairballAction != null)
         {
             hairballAction.performed += OnHairballPerformed;
@@ -145,12 +123,6 @@ public class CatController : MonoBehaviour
             purringAction.canceled -= OnPurringCanceled;
         }
     
-        if (concentrationAction != null)
-        {
-            concentrationAction.performed -= OnConcentrationPerformed;
-            concentrationAction.canceled -= OnConcentrationCanceled;
-        }
-    
         if (hairballAction != null)
         {
             hairballAction.performed -= OnHairballPerformed;
@@ -162,11 +134,6 @@ public class CatController : MonoBehaviour
         HandleMovementInput();
         HandlePurrCharge();
         UpdateAnimations();
-        
-        if (isConcentrating)
-        {
-            DetectNearbyEnemies();
-        }
     }
 
     void FixedUpdate()
@@ -245,8 +212,6 @@ public class CatController : MonoBehaviour
         
         Debug.Log("Cargando maullido...");
         
-        // FMOD: Reproducir sonido de carga de maullido (loop mientras se carga)
-        
         if (purrVfxSprite != null)
         {
             purrVfxSprite.gameObject.SetActive(true);
@@ -259,8 +224,6 @@ public class CatController : MonoBehaviour
         if (!isChargingPurr) return;
 
         isChargingPurr = false;
-    
-        // FMOD: Detener sonido de carga y reproducir maullido según la potencia
     
         if (animator != null)
         {
@@ -282,7 +245,7 @@ public class CatController : MonoBehaviour
     
     private void EmitPurr()
     {
-        Debug.Log($"¡MIAU! Rango: {currentPurringRange:F1}m");
+        Debug.Log($"Â¡MIAU! Rango: {currentPurringRange:F1}m");
         
         DistractNearbyGuards(currentPurringRange);
     }
@@ -300,18 +263,18 @@ public class CatController : MonoBehaviour
             {
                 guard.OnSoundHeard(transform.position);
                 guardsAlerted++;
-                Debug.Log($"Guardia distraído: {guard.name} (Distancia: {distance:F1}m)");
+                Debug.Log($"Guardia distraÃ­do: {guard.name} (Distancia: {distance:F1}m)");
             }
         }
         
         if (guardsAlerted > 0)
         {
             guardsDistracted += guardsAlerted;
-            Debug.Log($"{guardsAlerted} guardia(s) distraído(s)");
+            Debug.Log($"{guardsAlerted} guardia(s) distraÃ­do(s)");
         }
         else
         {
-            Debug.Log("Ningún guardia en rango");
+            Debug.Log("NingÃºn guardia en rango");
         }
     }
     
@@ -362,8 +325,6 @@ public class CatController : MonoBehaviour
         
         Vector3 spawnPosition = transform.position;
         
-        // FMOD: Reproducir sonido de bola de pelo siendo dejada
-        
         GameObject hairballObj = Instantiate(hairballPrefab, spawnPosition, Quaternion.identity);
         Hairball hairball = hairballObj.GetComponent<Hairball>();
         
@@ -383,7 +344,7 @@ public class CatController : MonoBehaviour
         
         StartCoroutine(TrackHairball(hairballObj));
         
-        Debug.Log($"¡Bola de pelo dejada en el suelo! ({activeHairballs}/{maxActiveHairballs})");
+        Debug.Log($"Â¡Bola de pelo dejada en el suelo! ({activeHairballs}/{maxActiveHairballs})");
     }
 
     private IEnumerator TrackHairball(GameObject hairballObj)
@@ -397,75 +358,12 @@ public class CatController : MonoBehaviour
         Debug.Log($"Bola de pelo destruida. Restantes: {activeHairballs}");
     }
     
-    void OnConcentrationPerformed(InputAction.CallbackContext context)
-    {
-        isConcentrating = true;
-        Debug.Log("Concentración activada");
-        
-        // FMOD: Reproducir sonido ambiente de concentración (loop)
-    }
-    
-    void OnConcentrationCanceled(InputAction.CallbackContext context)
-    {
-        isConcentrating = false;
-        Debug.Log("Concentración desactivada");
-        
-        // FMOD: Detener sonido ambiente de concentración
-    }
-    
-    void DetectNearbyEnemies()
-    {
-        GuardController[] guards = FindObjectsByType<GuardController>(FindObjectsSortMode.None);
-        
-        foreach (GuardController guard in guards)
-        {
-            float distance = Vector2.Distance(transform.position, guard.transform.position);
-            
-            if (distance <= concentrationRange)
-            {
-                Color stateColor = GetGuardStateColor(guard.CurrentState);
-                
-                if (showEnemyIndicators)
-                {
-                    SpriteRenderer guardSprite = guard.GetComponent<SpriteRenderer>();
-                    if (guardSprite != null)
-                    {
-                        guardSprite.color = Color.Lerp(guardSprite.color, stateColor * 1.5f, Time.deltaTime * 2f);
-                    }
-                }
-            }
-        }
-    }
-    
-    Color GetGuardStateColor(GuardController.GuardState state)
-    {
-        switch (state)
-        {
-            case GuardController.GuardState.Patrolling:
-                return Color.green;
-            case GuardController.GuardState.Investigating:
-                return Color.yellow;
-            case GuardController.GuardState.Chasing:
-                return Color.red;
-            case GuardController.GuardState.Stunned:
-                return Color.magenta;
-            default:
-                return Color.gray;
-        }
-    }
-    
     void OnDrawGizmos()
     {
         if (isChargingPurr)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, currentPurringRange);
-        }
-
-        if (isConcentrating)
-        {
-            Gizmos.color = new Color(0, 0.5f, 1f, 0.3f);
-            Gizmos.DrawWireSphere(transform.position, concentrationRange);
         }
     }
     
