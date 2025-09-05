@@ -18,6 +18,7 @@ public class RockBehaviour : MonoBehaviour
     {
         speed = newSpeed;
     }
+
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);

@@ -1,5 +1,12 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.Rendering.DebugUI;
+using Random = UnityEngine.Random;
 
 public class EnemyShip : MonoBehaviour
 {
@@ -10,6 +17,8 @@ public class EnemyShip : MonoBehaviour
     [SerializeField] private float countUp;
     [SerializeField] private float bulletSpawnTimer;
     [SerializeField] private float currentBulletTimer;
+    [SerializeField] private float xOffset;
+    [SerializeField] private float speed;
     [SerializeField] private ShipBullet bullet;
     [SerializeField] public bool canShoot;
     void Start()
@@ -18,6 +27,7 @@ public class EnemyShip : MonoBehaviour
         {
             targetShip = FindFirstObjectByType<Ship>();
             Debug.Log("Ship found!");
+            speed = 0.5f;
         }
         catch (Exception ex)
         {
@@ -43,10 +53,11 @@ public class EnemyShip : MonoBehaviour
                 SetAcceleration();
                 countUp = 0;
             }
-            this.transform.position = new Vector3(targetShip.transform.position.x, this.transform.position.y, this.transform.position.z);
+            StartCoroutine("FollowTarget");
 
+            transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * speed, transform.position.z);
 
-            if(currentBulletTimer >= bulletSpawnTimer && canShoot)
+            if (currentBulletTimer >= bulletSpawnTimer && canShoot)
             {
                 Instantiate(bullet, new Vector3 (this.transform.position.x, this.gameObject.transform.position.y + 1.5f, 
                     this.gameObject.transform.position.z), Quaternion.identity);
@@ -65,11 +76,19 @@ public class EnemyShip : MonoBehaviour
         }
     }
 
+    IEnumerator FollowTarget()
+    {
+        
+        var t = new Vector3(targetShip.transform.position.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, t, speed * Time.deltaTime * 2);
+       // StartCoroutine("FollowTarget");       
+        yield return new WaitForSeconds(5.1f);
+    }
     public void SetAcceleration()
     {
         try
         {
-            this.transform.position = new Vector3(targetShip.transform.position.x, this.transform.position.y + currentAcceleration, this.transform.position.z);
+            //this.transform.position = new Vector3(targetShip.transform.position.x, this.transform.position.y + currentAcceleration, this.transform.position.z);
             currentAcceleration += initialAcceleration;
         }
         catch (Exception ex) 

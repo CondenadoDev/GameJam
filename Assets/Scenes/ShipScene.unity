@@ -180,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 1055935497}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.38, z: -1}
+  m_LocalPosition: {x: 0, y: 0.13, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -388,9 +388,10 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1100347567}
   moveInput: {x: 0, y: 0}
   currentSpeed: 0
+  maxSpeed: 0
   health: 0
 --- !u!1 &1095745367 stripped
 GameObject:
@@ -611,6 +612,7 @@ MonoBehaviour:
   - {fileID: 6769976691581113229, guid: a2b36e50c04d5234a8b0d01e90fde0f9, type: 3}
   - {fileID: 6531678959999303457, guid: c86e55fd48a9f3249bf0156eaf495b68, type: 3}
   - {fileID: -2556982883214856223, guid: 295027b230393f84dbdbbceb0dfde9a4, type: 3}
+  currentObstacles: []
 --- !u!1001 &4039349157870799966
 PrefabInstance:
   m_ObjectHideFlags: 0

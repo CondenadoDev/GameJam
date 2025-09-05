@@ -69,10 +69,17 @@ public class ShipLevelManager : MonoBehaviour
             {
                 if (canPlay)
                 {
-                    var t = seaList[seaList.Count - 1].transform.transform.position;
-                    var s = Instantiate(goal,new Vector3(t.x,t.y,-2), Quaternion.identity);
-                    s.transform.parent = seaList[seaList.Count - 1].transform;
+                    var t = seaList[seaList.Count - 1].transform.position;
+                    var g = Instantiate(goal,new Vector3(t.x,t.y,-2), Quaternion.identity);
+                    g.transform.parent = seaList[seaList.Count - 1].transform;
                     canPlay = false;
+
+                    /*for(int i = 0; i < seaObstaclesList.Count; i++)
+                    {
+                        var s = seaObstaclesList[i];
+                        seaObstaclesList.Remove(seaObstaclesList[i]);
+                        Destroy(s);
+                    }*/
                     print("ganaste!");
                 }
             }
