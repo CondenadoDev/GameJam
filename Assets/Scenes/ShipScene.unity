@@ -585,16 +585,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToSpawnSea: 0
+  seaSpeed: 0
   elapsedSeaSpawnTime: 0
+  seaKillPosition: 0
   timeToSpawnRocks: 0
   elapsedRocksSpawnTime: 0
   xOffsetSpawnRocks: 0
+  currentShipCount: 0
+  maxShipCount: 0
   shipCount: []
   seaList: []
-  sea: {fileID: 1095745367}
   spawnPoint: {fileID: 736737601}
-  seaObstacle: {fileID: 2800860600851070844, guid: ba3bb54a32022564b934d0d74ebd2bb0, type: 3}
+  sea: {fileID: 1095745367}
   enemyShipReference: {fileID: 4738576785009972820, guid: 741fe00f94315d44785fa8833d05e603, type: 3}
+  seaObstacle: {fileID: 2800860600851070844, guid: ba3bb54a32022564b934d0d74ebd2bb0, type: 3}
+  goal: {fileID: 3483650710474300153, guid: 0927083a169866841af4d597b795fc61, type: 3}
   seaObstaclesList:
   - {fileID: 7521039744149432028, guid: 28e30a3b3357cca4c94f724055e17916, type: 3}
   - {fileID: 3447949402418852397, guid: 722ded6806679484d8604d53a877bef3, type: 3}

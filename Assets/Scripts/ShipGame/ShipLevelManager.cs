@@ -12,12 +12,13 @@ public class ShipLevelManager : MonoBehaviour
     [SerializeField] float xOffsetSpawnRocks;
     [SerializeField] float currentShipCount;
     [SerializeField] float maxShipCount;
-    [SerializeField] EnemyShip[] shipCount;
+    [SerializeField] List<GameObject> shipCount;
     [SerializeField] List<GameObject> seaList;
     [SerializeField] GameObject spawnPoint;
     [SerializeField] GameObject sea;
     [SerializeField] GameObject enemyShipReference;
     [SerializeField] GameObject seaObstacle;
+    [SerializeField] GameObject goal;
     [SerializeField] List<GameObject> seaObstaclesList;
 
 
@@ -48,16 +49,26 @@ public class ShipLevelManager : MonoBehaviour
 
     public void ShipController()
     {
-        if (shipCount.Length <= 0)
+        if (shipCount.Count <= 0)
         {
             if (currentShipCount < maxShipCount)
             {
-                Instantiate(enemyShipReference, new Vector3(0, -10, -1), Quaternion.identity);
+                var s = Instantiate(enemyShipReference, new Vector3(0, -10, -1), Quaternion.identity);
+                shipCount.Add(s);
                 currentShipCount++;
             }
             else
+            {
+                sea = goal;
                 print("ganaste!");
+            }
         }
+
+        if (shipCount[0] == null)
+        {
+            shipCount.Remove(shipCount[0]);
+        }
+
     }
 
     public void SeaBehaviour()

@@ -89,5 +89,10 @@ public class Ship : MonoBehaviour
             print(collision.gameObject.name);
             GetDamage(3);
         }
+
+        if(collision.gameObject.GetComponent<Goal>())
+        {
+            currentSpeed = 0;
+        }
     }
 }
