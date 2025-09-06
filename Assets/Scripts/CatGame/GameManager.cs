@@ -93,7 +93,10 @@ public class GameManager : MonoBehaviour
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
             
-            canvasGO.AddComponent<GraphicRaycaster>();
+            // No agregar GraphicRaycaster en WebGL para evitar bloqueo de input
+            #if !UNITY_WEBGL || UNITY_EDITOR
+                canvasGO.AddComponent<GraphicRaycaster>();
+            #endif
         }
         
         if (fadeImage == null)
@@ -103,6 +106,7 @@ public class GameManager : MonoBehaviour
             
             fadeImage = imageGO.AddComponent<Image>();
             fadeImage.color = new Color(0, 0, 0, 0);
+            fadeImage.raycastTarget = false; // Deshabilitar raycast para evitar bloqueo de UI
             
             RectTransform rectTransform = fadeImage.GetComponent<RectTransform>();
             rectTransform.anchorMin = Vector2.zero;
@@ -127,7 +131,7 @@ public class GameManager : MonoBehaviour
     
     void ResetAllGuards()
     {
-        GuardController[] allGuards = FindObjectsOfType<GuardController>();
+        GuardController[] allGuards = FindObjectsByType<GuardController>(FindObjectsSortMode.None);
         foreach (GuardController guard in allGuards)
         {
             guard.DisableGuard();
@@ -136,7 +140,7 @@ public class GameManager : MonoBehaviour
     
     void ResetAllGuardsToSpawn()
     {
-        GuardController[] allGuards = FindObjectsOfType<GuardController>();
+        GuardController[] allGuards = FindObjectsByType<GuardController>(FindObjectsSortMode.None);
         foreach (GuardController guard in allGuards)
         {
             guard.ResetToSpawn();

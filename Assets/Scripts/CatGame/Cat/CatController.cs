@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CatController : MonoBehaviour
 {
-    [Header("ConfiguraciÃ³n de Movimiento")]
+    [Header("Configuración de Movimiento")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float walkSpeedMultiplier = 0.5f;
 
@@ -35,6 +35,7 @@ public class CatController : MonoBehaviour
     private InputAction moveAction;
     private InputAction purringAction;
     private InputAction hairballAction;
+    private InputAction pauseAction; // Nueva acción de pausa
     
     private bool isChargingPurr = false;
     private bool isWalking = false;
@@ -60,35 +61,48 @@ public class CatController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         
+        // Configurar todas las acciones de input
         try
         {
             moveAction = playerInput.actions["Move"];
-            Debug.Log("AcciÃ³n 'Move' encontrada");
+            Debug.Log("Acción 'Move' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogError("No se encontrÃ³ la acciÃ³n 'Move'");
+            Debug.LogError("No se encontró la acción 'Move'");
         }
         
         try
         {
             purringAction = playerInput.actions["Purring"];
-            Debug.Log("AcciÃ³n 'Purring' encontrada");
+            Debug.Log("Acción 'Purring' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogError("No se encontrÃ³ la acciÃ³n 'Purring'");
+            Debug.LogError("No se encontró la acción 'Purring'");
         }
         
         try
         {
             hairballAction = playerInput.actions["Hairball"];
-            Debug.Log("AcciÃ³n 'Hairball' encontrada");
+            Debug.Log("Acción 'Hairball' encontrada");
         }
         catch (System.Exception)
         {
-            Debug.LogWarning("No se encontrÃ³ la acciÃ³n 'Hairball' - Las bolas de pelo estarÃ¡n deshabilitadas");
+            Debug.LogWarning("No se encontró la acción 'Hairball' - Las bolas de pelo estarán deshabilitadas");
             hairballAction = null;
+        }
+
+        // Nueva acción de pausa
+        try
+        {
+            pauseAction = playerInput.actions["Pause"];
+            Debug.Log("Acción 'Pause' encontrada");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("No se encontró la acción 'Pause' - Se usará ESC como respaldo");
+            pauseAction = null;
         }
 
         if (purrVfxSprite != null)
@@ -113,6 +127,12 @@ public class CatController : MonoBehaviour
         {
             hairballAction.performed += OnHairballPerformed;
         }
+
+        // Suscribir la acción de pausa
+        if (pauseAction != null)
+        {
+            pauseAction.performed += OnPausePerformed;
+        }
     }
     
     void OnDisable()
@@ -127,17 +147,42 @@ public class CatController : MonoBehaviour
         {
             hairballAction.performed -= OnHairballPerformed;
         }
+
+        // Desuscribir la acción de pausa
+        if (pauseAction != null)
+        {
+            pauseAction.performed -= OnPausePerformed;
+        }
     }
     
     void Update()
     {
+        // Solo procesar input si el juego no está pausado
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         HandleMovementInput();
         HandlePurrCharge();
         UpdateAnimations();
+
+        // Respaldo para ESC si no hay acción de pausa configurada
+        if (pauseAction == null && Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPauseTriggered();
+        }
     }
 
     void FixedUpdate()
     {
+        // Solo procesar movimiento si el juego no está pausado
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused())
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         HandleMovement();
     }
     
@@ -201,6 +246,10 @@ public class CatController : MonoBehaviour
     
     void OnPurringPerformed(InputAction.CallbackContext context)
     {
+        // No procesar si está pausado
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused())
+            return;
+
         if (Time.time < lastPurrTime + purringCooldown)
         {
             Debug.Log("Maullido en cooldown!");
@@ -221,6 +270,10 @@ public class CatController : MonoBehaviour
     
     void OnPurringCanceled(InputAction.CallbackContext context)
     {
+        // No procesar si está pausado
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused())
+            return;
+
         if (!isChargingPurr) return;
 
         isChargingPurr = false;
@@ -245,7 +298,7 @@ public class CatController : MonoBehaviour
     
     private void EmitPurr()
     {
-        Debug.Log($"Â¡MIAU! Rango: {currentPurringRange:F1}m");
+        Debug.Log($"¡MIAU! Rango: {currentPurringRange:F1}m");
         
         DistractNearbyGuards(currentPurringRange);
     }
@@ -263,18 +316,18 @@ public class CatController : MonoBehaviour
             {
                 guard.OnSoundHeard(transform.position);
                 guardsAlerted++;
-                Debug.Log($"Guardia distraÃ­do: {guard.name} (Distancia: {distance:F1}m)");
+                Debug.Log($"Guardia distraído: {guard.name} (Distancia: {distance:F1}m)");
             }
         }
         
         if (guardsAlerted > 0)
         {
             guardsDistracted += guardsAlerted;
-            Debug.Log($"{guardsAlerted} guardia(s) distraÃ­do(s)");
+            Debug.Log($"{guardsAlerted} guardia(s) distraído(s)");
         }
         else
         {
-            Debug.Log("NingÃºn guardia en rango");
+            Debug.Log("Ningún guardia en rango");
         }
     }
     
@@ -300,6 +353,10 @@ public class CatController : MonoBehaviour
 
     void OnHairballPerformed(InputAction.CallbackContext context)
     {
+        // No procesar si está pausado
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused())
+            return;
+
         if (Time.time < lastHairballTime + hairballCooldown)
         {
             Debug.Log("Bolas de pelo en cooldown!");
@@ -344,7 +401,7 @@ public class CatController : MonoBehaviour
         
         StartCoroutine(TrackHairball(hairballObj));
         
-        Debug.Log($"Â¡Bola de pelo dejada en el suelo! ({activeHairballs}/{maxActiveHairballs})");
+        Debug.Log($"¡Bola de pelo dejada en el suelo! ({activeHairballs}/{maxActiveHairballs})");
     }
 
     private IEnumerator TrackHairball(GameObject hairballObj)
@@ -356,6 +413,24 @@ public class CatController : MonoBehaviour
         
         activeHairballs = Mathf.Max(0, activeHairballs - 1);
         Debug.Log($"Bola de pelo destruida. Restantes: {activeHairballs}");
+    }
+
+    // Nuevo método para manejar la pausa
+    void OnPausePerformed(InputAction.CallbackContext context)
+    {
+        OnPauseTriggered();
+    }
+
+    private void OnPauseTriggered()
+    {
+        if (PauseManager.Instance != null)
+        {
+            PauseManager.Instance.TogglePause();
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró PauseManager en la escena");
+        }
     }
     
     void OnDrawGizmos()

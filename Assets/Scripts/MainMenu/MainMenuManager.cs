@@ -423,6 +423,10 @@ public class MainMenuManager : MonoBehaviour
         
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_WEBGL
+            // En WebGL, mostrar mensaje de agradecimiento y opcional redirigir
+            Debug.Log("Gracias por jugar!");
+            Application.OpenURL("javascript:alert('¡Gracias por jugar!')");
         #else
             Application.Quit();
         #endif
